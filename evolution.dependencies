@@ -1,0 +1,50 @@
+[
+  {
+    "repository": "StimLuks87/android_device_realme_salaa",
+    "target_path": "device/realme/salaa",
+    "revision": "udc"
+    "remote": "github"
+  },
+  {
+    "repository": "StimLuks87/psionic_kernel_realme_mt6785",
+    "target_path": "kernel/realme/mt6785",
+    "revision": "android-14",
+    "remote": "github"
+  },
+  {
+    "repository": "StimLuks87/vendor_device_realme_salaa",
+    "target_path": "vendor/realme/salaa",
+    "revision": "android-14",
+    "remote": "github"
+  },
+  {
+    "repository": "LineageOS/android_hardware_oplus",
+    "target_path": "hardware/oplus",
+    "revision": "lineage-21",
+    "remote": "github"
+  },
+  {
+    "repository": "LineageOS/android_hardware_mediatek",
+    "target_path": "hardware/mediatek",
+    "revision": "lineage-21",
+    "remote": "github"
+  },
+  {
+    "repository": "LineageOS/android_device_mediatek_sepolicy_vndr",
+    "target_path": "device/mediatek/sepolicy_vndr",
+    "revision": "lineage-21",
+    "remote": "github"
+  },
+  {
+    "repository": "StimLuks87/VIPER_apps_ViPER4AndroidFX",
+    "target_path": "packages/apps/ViPER4AndroidFX",
+    "revision": "udc",
+    "remote": "github"
+  },
+  {
+    "repository": "StimLuks87/GoogleCameraGo",
+    "target_path": "packages/apps/GoogleCameraGo",
+    "revision": "android-14",
+    "remote": "github"
+  }
+]
