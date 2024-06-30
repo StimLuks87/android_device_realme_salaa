@@ -1,4 +1,4 @@
-# Android Device tree for Realme 7 (RMX2155L1, RMX2151L1)
+# Android Device tree for Realme 7 (RMX2155L1, RMX2151L1, salaa)
 
 
 ## Spec Sheet

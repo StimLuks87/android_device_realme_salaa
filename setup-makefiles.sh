@@ -1,10 +1,8 @@
 #!/bin/bash
 #
-# Copyright (C) 2024 The LineageOS Project
-#
+# SPDX-FileCopyrightText: 2023-2024 The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
-
 set -e
 
 DEVICE=salaa
@@ -32,9 +30,6 @@ setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
 write_headers
 
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
-
-# Append the calls to firmware images
-append_firmware_calls_to_makefiles "${MY_DIR}/proprietary-firmware.txt"
 
 # Finish
 write_footers

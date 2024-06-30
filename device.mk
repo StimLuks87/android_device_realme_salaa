@@ -1,6 +1,5 @@
 #
-# Copyright (C) 2024 The LineageOS Project
-#
+# SPDX-FileCopyrightText: 2023-2024 The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -15,21 +14,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 # Dalvik VM Configuration
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
-# Bcr Recorder
-$(call inherit-product, vendor/extras/bcr/bcr.mk)
-
-# Inherit some extras stuff
-$(call inherit-product, vendor/extras/evolution.mk)
-
 # RealmeParts
 #$(call inherit-product, packages/apps/RealmeParts/parts.mk)
 
-# Target VNDK Fallback version
-PRODUCT_EXTRA_VNDK_VERSIONS := 30 31 32 33 34
-
 # Shipping API level
-PRODUCT_SHIPPING_API_LEVEL := 29
 BOARD_SHIPPING_API_LEVEL := 29
+PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
+
+# Configstore
+PRODUCT_PACKAGES += \
+    disable_configstore
 
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -114,7 +108,9 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4.vendor \
     android.hardware.camera.provider@2.5.vendor \
     android.hardware.camera.provider@2.6.vendor \
-    libcamera2ndk_vendor
+    libcamera2ndk_vendor \
+    libexpat.vendor:64 \
+    libpng.vendor:64
 
 PRODUCT_PACKAGES += \
     libcamera_metadata_shim
@@ -141,7 +137,8 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack-service.mediatek-mali \
     libdrm.vendor \
     libdrm \
-    libion
+    libion.vendor \
+    libui.vendor
 
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
@@ -157,7 +154,8 @@ PRODUCT_COPY_FILES += \
 # Gatekeeper
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service \
-    android.hardware.gatekeeper@1.0-impl
+    android.hardware.gatekeeper@1.0-impl \
+    libgatekeeper.vendor:64
 
 PRODUCT_COPY_FILES += \
     system/core/libprocessgroup/profiles/cgroups_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
@@ -172,7 +170,8 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@1.1.vendor \
     android.hardware.gnss@2.0.vendor \
     android.hardware.gnss@2.1.vendor \
-    android.hardware.gnss-V1-ndk_platform.vendor
+    android.hardware.gnss-V1-ndk_platform.vendor \
+    libcurl.vendor:32
 
 # Health
 PRODUCT_PACKAGES += \
@@ -185,7 +184,8 @@ PRODUCT_PACKAGES += \
     libhidltransport \
     libhidltransport.vendor \
     libhwbinder \
-    libhwbinder.vendor
+    libhwbinder.vendor \
+    libhidlmemory.vendor:64
 
 # IMS
 PRODUCT_BOOT_JARS += \
@@ -214,6 +214,7 @@ PRODUCT_PACKAGES += \
     libsoft_attestation_cert.vendor:64 \
     libkeystore-wifi-hidl \
     libkeystore-engine-wifi-hidl \
+    libnetutils.vendor:64
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -281,16 +282,16 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-evolution
+    $(LOCAL_PATH)/overlay-everest
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 PRODUCT_PACKAGES += \
-    FrameworkResOverlayPlatformSalaa\
-    OplusDozeOverlaySalaa \
-    SettingsOverlaySalaa \
-    SystemUIOverlaySalaa \
-    TelephonyOverlaySalaa \
+    SalaaFrameworkResOverlayPlatform \
+    SalaaOplusDozeOverlay \
+    SalaaSettingsOverlayPlatform \
+    SalaaSystemUIOverlayPlatform \
+    TelephonyOverlay \
     SettingsProviderOverlay7 \
     WifiOverlay \
     TetheringConfigOverlay \
@@ -418,13 +419,13 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    libshim_sensors \
     android.hardware.sensors@1.0.vendor \
     android.hardware.sensors@2.0.vendor \
     android.hardware.sensors@2.1.vendor \
     android.hardware.sensors@2.0-ScopedWakelock.vendor \
     android.frameworks.sensorservice@1.0 \
     android.frameworks.sensorservice@1.0.vendor \
+    libpower.vendor:64 \
     libsensorndkbridge
 
 # Soundtrigger
@@ -440,7 +441,7 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
     hardware/google/pixel \
-    hardware/lineage/interfaces/power-libperfmgr \
+    hardware/everest/interfaces/power-libperfmgr \
     hardware/mediatek \
     hardware/oplus
     
@@ -475,10 +476,9 @@ PRODUCT_COPY_FILES += \
     prebuilts/vndk/v32/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v32.so \
     prebuilts/vndk/v33/arm64/arch-arm64-armv8-a/shared/vndk-core/libstagefright_foundation.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libstagefright_foundation-v33.so
 
-# Charger
 PRODUCT_PACKAGES += \
-    libsuspend \
-    charger_res_images
+    libunwindstack.vendor \
+    libutilscallstack.vendor
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
@@ -487,14 +487,11 @@ PRODUCT_PACKAGES += \
     android.hardware.tetheroffload.control@1.1.vendor
 
 PRODUCT_PACKAGES += \
-    libnl \
     android.hardware.wifi-service \
     wpa_supplicant \
     hostapd \
-    libwifi-hal-wrapper
-
-PRODUCT_PACKAGES += \
-    disable_configstore
+    libwifi-hal-wrapper \
+    libnl
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \

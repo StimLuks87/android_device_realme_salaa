@@ -1,8 +1,7 @@
 #
-# Copyright (C) 2024 The LineageOS Project
-#
+# SPDX-FileCopyrightText: 2023-2024 The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_salaa.mk
+    $(LOCAL_DIR)/everest_salaa.mk

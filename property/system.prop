@@ -49,7 +49,6 @@ persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 
 # USB
-persist.sys.usb.config=mtp,adb
 ro.sys.usb.mtp.whql.enable=0
 ro.sys.usb.storage.type=mtp
 ro.sys.usb.charging.only=yes
