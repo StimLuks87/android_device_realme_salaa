@@ -14,15 +14,10 @@ $(call inherit-product, $(LOCAL_PATH)/device.mk)
 # Inherit some common Evo stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Certification
-#$(call inherit-product-if-exists, vendor/certification/config.mk)
-
-# Extras
-#$(call inherit-product, vendor/extras/evolution.mk)
-
 # RisingOS flags
 RISING_BUILDTYPE := UNOFFICIAL
 PRODUCT_NO_CAMERA := false
+TARGET_PREBUILT_BCR := true
 TARGET_DEFAULT_PIXEL_LAUNCHER := true
 TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true
 TARGET_ENABLE_PIXEL_FEATURES := true
@@ -49,7 +44,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 TARGET_BOOT_ANIMATION_RES := 1080
 
 # EPPE
-TARGET_DISABLE_EPPE := true
+#TARGET_DISABLE_EPPE := true
 
 # Device Information
 PRODUCT_DEVICE := salaa

@@ -236,17 +236,12 @@ ro.crypto.volume.options=::v2
 # Sensors
 ro.vendor.mtk.sensor.support=yes
 
-# LMK
-ro.lmk.psi_complete_stall_ms=150
-ro.lmk.swap_free_low_percentage=20
-ro.lmk.thrashing_limit=30
-ro.lmk.thrashing_limit_decay=50
-ro.lmk.swap_util_max=90
-ro.lmk.kill_timeout_ms=100
+# Incremental
+ro.incremental.enable=yes
 
 # HWUI
 debug.hwui.use_hint_manager=true
-debug.hwui.target_cpu_time_percent=20
+debug.hwui.target_cpu_time_percent=30
 
 # SoC
 ro.soc.manufacturer=MediaTek

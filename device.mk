@@ -20,11 +20,14 @@ $(call inherit-product-if-exists, packages/apps/VancedManager/config.mk)
 # ViPER4AndroidFX
 $(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
 
-# Updatable APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+# Certification
+#$(call inherit-product-if-exists, vendor/certification/config.mk)
+
+# Extras
+#$(call inherit-product, vendor/extras/evolution.mk)
 
 # Call Recorder
-$(call inherit-product, vendor/bcr/bcr.mk)
+#$(call inherit-product, vendor/bcr/bcr.mk)
 
 # Priv Keys
 -include vendor/lineage-priv/keys/keys.mk
