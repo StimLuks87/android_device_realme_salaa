@@ -402,6 +402,10 @@ PRODUCT_PACKAGES += \
     vendor.mediatek.hardware.mtkpower@1.1.vendor \
     vendor.mediatek.hardware.mtkpower@1.2.vendor
 
+# PowerShare
+PRODUCT_PACKAGES += \
+    vendor.lineage.powershare@1.0-service.default
+
 # PowerOffAlarm
 PRODUCT_PACKAGES += \
     PowerOffAlarm

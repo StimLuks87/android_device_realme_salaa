@@ -22,7 +22,7 @@ git clone https://github.com/StimLuks87/vendor_bcr vendor/bcr
 #git clone https://github.com/LineageOS/android_device_lineage_sepolicy device/lineage/sepolicy
 
 # ViPER4AndroidFX:
-git clone https://github.com/StimLuks87/VIPER_apps_ViPER4AndroidFX packages/apps/ViPER4AndroidFX
+git clone https://github.com/StimLuks87/packages_apps_ViPER4AndroidFX packages/apps/ViPER4AndroidFX
 
 # VancedManager
 git clone https://github.com/StimLuks87/VancedManager packages/apps/VancedManager
