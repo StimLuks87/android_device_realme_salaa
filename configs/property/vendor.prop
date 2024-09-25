@@ -273,9 +273,9 @@ ro.vendor.mediatek.version.branch=alps-mp-s0.mp1.tc16sp-pr6
 ro.vendor.mediatek.version.release=alps-mp-s0.mp1.tc16sp-pr6-V1.1
 
 # Oplus
-ro.oplus.version.base=20682.2.4.2023062909430318459522
-ro.oplus.image.base.version=20682.2.4.2023062909430318459522
-ro.oplus.image.vendor.version=.b84d491f
+ro.oplus.version.base=20682.2.4.2024040112144924504550
+ro.oplus.image.base.version=20682.2.4.2024040112144924504550
+ro.oplus.image.vendor.version=.da5722b8
 
 # WiFi
 ro.vendor.wifi.sap.interface=ap0

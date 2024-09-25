@@ -1,22 +1,19 @@
 # Cloning required repositories for making rum:
 
 # Kernel Source:
-git clone https://github.com/StimLuks87/psionic_kernel_realme_mt6785  kernel/realme/mt6785
+git clone  https://github.com/StimLuks87/kernel_oplus_mt6785 kernel/realme/mt6785
 
 # Vendor Source:
-git clone https://github.com/StimLuks87/vendor_device_realme_salaa vendor/realme/salaa
+git clone https://github.com/StimLuks87/vendor_device_oplus_ossi.git vendor/realme/salaa
 unzip vendor/realme/salaa/radio/md1img.zip -d vendor/realme/salaa/radio && rm vendor/realme/salaa/radio/md1img.zip
 unzip vendor/realme/salaa/proprietary/odm/lib64/libstfaceunlockppl.zip -d vendor/realme/salaa/proprietary/odm/lib64 && rm vendor/realme/salaa/proprietary/odm/lib64/libstfaceunlockppl.zip
 
 # Hardware of Mediatek and Oplus:
 git clone https://github.com/LineageOS/android_hardware_oplus hardware/oplus
-git clone https://github.com/LineageOS/android_hardware_mediatek hardware/mediatek
+git clone https://github.com/The-Pixel-Project/hardware_mediatek hardware/mediatek
 
 # Mediatek SEPolicy VNDR:
 git clone https://github.com/LineageOS/android_device_mediatek_sepolicy_vndr device/mediatek/sepolicy_vndr
-
-# bcr
-git clone https://github.com/StimLuks87/vendor_bcr vendor/bcr
 
 # Lineage SEPolicy:
 #git clone https://github.com/LineageOS/android_device_lineage_sepolicy device/lineage/sepolicy

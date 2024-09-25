@@ -11,7 +11,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 # Inherit from device makefile.
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
-# Inherit some common Evo stuff.
+# Inherit some common Rising stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # RisingOS flags
