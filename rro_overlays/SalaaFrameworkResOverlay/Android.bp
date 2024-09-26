@@ -1,5 +1,5 @@
 runtime_resource_overlay {
-    name: "SalaaFrameworkResOverlayPlatform",
+    name: "SalaaFrameworkResOverlay",
     resource_dirs: ["res"],
     product_specific: true
 }

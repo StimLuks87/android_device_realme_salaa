@@ -312,10 +312,10 @@ PRODUCT_PACKAGES += \
 # Overlays
 PRODUCT_PACKAGES += \
     CarrierConfigOverlay \
-    SalaaFrameworkResOverlayPlatform \
+    SalaaFrameworkResOverlay \
     SalaaOplusDozeOverlay \
-    SalaaSettingsOverlayPlatform \
-    SalaaSystemUIOverlayPlatform \
+    SalaaSettingsOverlay \
+    SalaaSystemUIOverlay \
     SettingsProviderOverlay7 \
     SettingsProviderOverlayNarzo20Pro \
     SettingsProviderOverlayNarzo30 \
