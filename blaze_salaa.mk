@@ -11,38 +11,23 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 # Inherit from device makefile.
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
-# Inherit some common Rising stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common Blaze stuff.
+$(call inherit-product, vendor/blaze/config/common_full_phone.mk)
 
-# RisingOS flags
-RISING_BUILDTYPE := UNOFFICIAL
-PRODUCT_NO_CAMERA := false
-TARGET_PREBUILT_BCR := true
-TARGET_DEFAULT_PIXEL_LAUNCHER := true
-TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := true
-TARGET_ENABLE_PIXEL_FEATURES := true
-TARGET_FACE_UNLOCK_SUPPORTED := true
-TARGET_BOOT_ANIMATION_RES := 1080
+# Blaze flags
 TARGET_SUPPORTS_QUICK_TAP := true
-TARGET_ENABLE_BLUR := true
-USE_PIXEL_CHARGER := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_SUPPORTS_CALL_RECORDING := true
 TARGET_SUPPORTS_GOOGLE_RECORDER := true
-TARGET_INCLUDE_LIVE_WALLPAPERS := true
-RISING_BATTERY := 5000mAh
-RISING_DISPLAY := 1080X2400
-RISING_CHIPSET :="Helio G95"
-RISING_MAINTAINER :="Luks"
+TARGET_INCLUDE_PIXEL_LAUNCHER := true
+TARGET_SUPPORTS_BLUR := true
+USE_PIXEL_CHARGER := true
+BLAZE_BUILD_TYPE := UNOFFICIAL
+BLAZE_MAINTAINER := Luks
 
 # GMS
-WITH_GMS := true
-TARGET_CORE_GMS := true
-TARGET_CORE_GMS_EXTRAS := true
-
-# Build_Prop
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    RISING_CHIPSET="Helio G95" \
-    RISING_MAINTAINER="Luks"
+TARGET_GAPPS_ARCH := arm64
+WITH_GAPPS := true
 
 # Boot Animation Resolution
 TARGET_BOOT_ANIMATION_RES := 1080
@@ -52,7 +37,7 @@ TARGET_BOOT_ANIMATION_RES := 1080
 
 # Device Information
 PRODUCT_DEVICE := salaa
-PRODUCT_NAME := lineage_$(PRODUCT_DEVICE)
+PRODUCT_NAME := blaze_$(PRODUCT_DEVICE)
 PRODUCT_BRAND := realme
 PRODUCT_MANUFACTURER := $(PRODUCT_BRAND)
 PRODUCT_MODEL := realme 7/Narzo 20 Pro/Narzo 30 4G

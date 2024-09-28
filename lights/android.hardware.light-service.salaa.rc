@@ -1,4 +1,4 @@
-service vendor.light-default /vendor/bin/hw/android.hardware.light-service.salaa
+service vendor.light-hal-2-0.salaa /vendor/bin/hw/android.hardware.light-service.salaa
     class hal
     user system
     group system

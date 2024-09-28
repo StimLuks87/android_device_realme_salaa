@@ -24,10 +24,10 @@ $(call inherit-product-if-exists, packages/apps/VancedManager/config.mk)
 $(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
 
 # Oplus-Fwk
-$(call inherit-product, hardware/oplus/oplus-fwk/oplus-fwk.mk)
+#$(call inherit-product, hardware/oplus/oplus-fwk/oplus-fwk.mk)
 
 # Priv Keys
--include vendor/lineage-priv/keys/keys.mk
+#-include vendor/lineage-priv/keys/keys.mk
 
 # Shipping API level
 BOARD_SHIPPING_API_LEVEL := 29
@@ -35,6 +35,7 @@ PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
 
 # Update
 AB_OTA_UPDATER := false
+PRODUCT_SOONG_NAMESPACES += bootable/deprecated-ota
 
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -324,7 +325,7 @@ PRODUCT_PACKAGES += \
     WifiOverlay
 
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-rising \
+    $(LOCAL_PATH)/overlay-blaze \
     $(LOCAL_PATH)/overlay-lineage
 
 # Enforce RRO targets
@@ -369,9 +370,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
-    frameworks/native/data/etc/android.software.opengles.deqp.level-2021-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
+    frameworks/native/data/etc/android.software.opengles.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml \
-    frameworks/native/data/etc/android.software.vulkan.deqp.level-2021-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
+    frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
 # Power
@@ -490,7 +491,7 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/google/interfaces \
     hardware/google/pixel \
-    hardware/lineage/interfaces/power-libperfmgr \
+    hardware/blaze/interfaces/power-libperfmgr \
     hardware/mediatek/libmtkperf_client \
     hardware/mediatek \
     hardware/oplus

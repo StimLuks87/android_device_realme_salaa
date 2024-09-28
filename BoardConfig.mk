@@ -106,7 +106,7 @@ BOARD_MAIN_SIZE := 9122611200
 BOARD_MAIN_PARTITION_LIST := system system_ext vendor product odm
 
 # Reserve space for gapps install
--include vendor/lineage/config/BoardConfigReservedSize.mk
+-include vendor/blaze/config/BoardConfigReservedSize.mk
 
 TARGET_RO_FILE_SYSTEM_TYPE ?= ext4
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := $(TARGET_RO_FILE_SYSTEM_TYPE)
@@ -191,7 +191,7 @@ DEVICE_MANIFEST_NFC_FILES := $(DEVICE_PATH)/configs/vintf/manifest_nfc.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/configs/vintf/framework_compatibility_matrix.xml \
     hardware/oplus/vintf/device_framework_matrix.xml \
-    vendor/lineage/config/device_framework_matrix.xml
+    vendor/blaze/config/device_framework_matrix.xml
 
 # VNDK
 BOARD_VNDK_VERSION := current

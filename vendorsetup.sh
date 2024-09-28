@@ -9,14 +9,14 @@ unzip vendor/realme/salaa/radio/md1img.zip -d vendor/realme/salaa/radio && rm ve
 unzip vendor/realme/salaa/proprietary/odm/lib64/libstfaceunlockppl.zip -d vendor/realme/salaa/proprietary/odm/lib64 && rm vendor/realme/salaa/proprietary/odm/lib64/libstfaceunlockppl.zip
 
 # Hardware of Mediatek and Oplus:
-git clone https://github.com/LineageOS/android_hardware_oplus hardware/oplus
+git clone https://github.com/Pixelage-x-Spartan/hardware_oplus hardware/oplus
 git clone https://github.com/The-Pixel-Project/hardware_mediatek hardware/mediatek
 
 # Mediatek SEPolicy VNDR:
 git clone https://github.com/LineageOS/android_device_mediatek_sepolicy_vndr device/mediatek/sepolicy_vndr
 
 # Lineage SEPolicy:
-#git clone https://github.com/LineageOS/android_device_lineage_sepolicy device/lineage/sepolicy
+git clone https://github.com/LineageOS/android_device_lineage_sepolicy device/lineage/sepolicy
 
 # ViPER4AndroidFX:
 git clone https://github.com/StimLuks87/packages_apps_ViPER4AndroidFX packages/apps/ViPER4AndroidFX

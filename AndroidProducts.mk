@@ -4,4 +4,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_salaa.mk
+    $(LOCAL_DIR)/blaze_salaa.mk
