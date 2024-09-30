@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2015-2016 The CyanogenMod Project
+                   2017-2021 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Default value for proximity check on screen wake
+     NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)-->
+    <bool name="config_proximityCheckOnWake">true</bool>
+    <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
+
+    <!-- Whether device has screen with higher aspect ratio -->
+    <bool name="config_haveHigherAspectRatioScreen">true</bool>
+
+    <!-- Device specific doze package -->
+    <string name="config_customDozePackage" translatable="false">org.lineageos.settings/org.lineageos.settings.doze.DozeSettingsActivity</string>
+
+    <!-- Defines the actions shown in advanced reboot submenu -->
+    <string-array name="config_restartActionsList">
+        <item>restart</item>
+        <item>restart_recovery</item>
+        <item>restart_bootloader</item>
+        <item>restart_systemui</item>
+        <item>restart_fastboot</item>
+     </string-array>
+
+     <!-- The list of package IDs that are allowed to use aux cameras.  -->
+    <string-array name="config_cameraAuxPackageAllowList" translatable="false">
+        <item>org.codeaurora.snapcam</item>
+        <item>org.lineageos.aperture</item>
+        <item>org.lineageos.aperture.dev</item>  
+    </string-array>
+</resources>

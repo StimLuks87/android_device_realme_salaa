@@ -1,5 +1,5 @@
 #
-#  Copyright (C) 2024 The LineageOS Project
+#  Copyright (C) 2022-2024 Project Blaze
 #  SPDX-License-Identifier: Apache-2.0
 #
 
@@ -23,10 +23,8 @@ $(call inherit-product-if-exists, packages/apps/VancedManager/config.mk)
 # ViPER4AndroidFX
 $(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
 
-# Oplus-Fwk
-#$(call inherit-product, hardware/oplus/oplus-fwk/oplus-fwk.mk)
-
 # Priv Keys
+#$(call inherit-product, vendor/lineage-priv/keys/keys.mk)
 #-include vendor/lineage-priv/keys/keys.mk
 
 # Shipping API level
@@ -139,10 +137,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CameraGo
 
-PRODUCT_PACKAGES += \
-    FilesPrebuilt \
-    DocumentsUIGoogle
-
 # Doze
 PRODUCT_PACKAGES += \
     OplusDoze
@@ -172,6 +166,8 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.common-V2-ndk_platform.vendor \
     android.hardware.graphics.composer@2.2-service \
     android.hardware.memtrack-service.mediatek-mali \
+    libhwc2on1adapter \
+    libhwc2onfbadapter.vendor \
     libdrm.vendor \
     libdrm \
     libion.vendor \
@@ -211,7 +207,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-impl.recovery \
-    android.hardware.health@2.1-service
+    android.hardware.health@2.1-service \
+    charger_res_images_vendor
+
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -278,10 +278,6 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/seccomp,$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy) \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/media,$(TARGET_COPY_OUT_VENDOR)/etc)
 
-PRODUCT_COPY_FILES += \
-    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml
-
 # Neural Networks
 PRODUCT_PACKAGES += \
     android.hardware.neuralnetworks@1.0.vendor \
@@ -325,8 +321,7 @@ PRODUCT_PACKAGES += \
     WifiOverlay
 
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-blaze \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay-blaze
 
 # Enforce RRO targets
 PRODUCT_ENFORCE_RRO_TARGETS := *
@@ -356,6 +351,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.se.omapi.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.se.omapi.uicc.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.xml \
@@ -518,6 +514,7 @@ PRODUCT_PACKAGES += \
     libpiex \
     libjsoncpp.vendor \
     libdumpstateutil.vendor \
+    libsqlite.vendor \
     libchrome.vendor
 
 PRODUCT_PACKAGES += \

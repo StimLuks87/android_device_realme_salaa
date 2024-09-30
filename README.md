@@ -24,7 +24,7 @@
 
 ```
 #
-#  Copyright (C) 2024 The LineageOS Project
+#  Copyright (C) 2022-2024 Project Blaze
 #  SPDX-License-Identifier: Apache-2.0
 #
 ```
