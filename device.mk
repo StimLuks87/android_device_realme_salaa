@@ -17,11 +17,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 # Dalvik VM Configuration
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
-# VancedManager
-$(call inherit-product-if-exists, packages/apps/VancedManager/config.mk)
-
 # ViPER4AndroidFX
 $(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
+
+# Bcr
+$(call inherit-product, vendor/bcr/bcr.mk)
 
 # Priv Keys
 #$(call inherit-product, vendor/lineage-priv/keys/keys.mk)
@@ -88,6 +88,9 @@ PRODUCT_PACKAGES += \
     libhapticgenerator \
     libalsautils \
     libldacBT_bco
+
+# AudioFX
+TARGET_EXCLUDES_AUDIOFX := true
 
 PRODUCT_PACKAGES += \
     BesLoudness \
