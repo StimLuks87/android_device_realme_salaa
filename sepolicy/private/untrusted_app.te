@@ -1,0 +1,2 @@
+dontaudit untrusted_app vm_data_file:dir r_dir_perms;
+allow untrusted_app adbd_tradeinmode:unix_stream_socket connectto;

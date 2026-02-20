@@ -1,0 +1,2 @@
+get_prop(mtk_hal_pq, system_oplus_sensors_prop)
+r_dir_file(mtk_hal_pq, vendor_proc_oplus_version)

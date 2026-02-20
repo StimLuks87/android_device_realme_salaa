@@ -1,0 +1,3 @@
+get_prop(mobicore, system_oplus_project_prop)
+get_prop(mobicore, system_cabc_prop)
+dontaudit mobicore system_prop:file r_file_perms;

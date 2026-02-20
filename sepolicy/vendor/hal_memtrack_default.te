@@ -1,0 +1,2 @@
+allow hal_memtrack_default self:process execmem;
+r_dir_file(hal_memtrack_default, sysfs_gpu_mtk)

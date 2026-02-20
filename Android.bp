@@ -1,0 +1,19 @@
+//
+// SPDX-FileCopyrightText: The Android Open Source Project
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+soong_namespace {
+    imports: [
+        "hardware/mediatek",
+        "hardware/oplus",
+        "hardware/dolby",
+    ],
+}
+
+cc_library_shared {
+    name: "libldacBT_bco",
+    vendor_available: true,
+    srcs: [],
+}
