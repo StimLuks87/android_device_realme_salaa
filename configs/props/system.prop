@@ -1,0 +1,105 @@
+# AEE
+ro.vendor.have_aee_feature=1
+
+# Audio
+ro.mtk_audenh_support=1
+ro.mtk_audio_lossless_support=1
+ro.mtk_besloudness_support=1
+ro.audio.silent=0
+ro.audio.usb.period_us=16000
+ro.config.hd_voicemail=1
+ro.config.media_vol_steps=15
+ro.config.vc_call_vol_steps=7
+
+# Camera
+persist.camera.HAL3.enabled=1
+persist.camera.eis.enable=1
+ro.mtk_cam_dualzoom_support=1
+ro.mtk_cam_stereo_camera_support=1
+ro.camera.hfr.enable=1
+ro.camera.high.resolution.video.filter.enable=1
+ro.camera.ignore.input.stream.check.enable=1
+ro.camera.portrait.blur.level.enable=1
+ro.camera.sound.forced=0
+ro.camera.temperature.limit=440
+ro.camera.videoeis.enable=
+ro.mtk_cam.mfb.ultimate=1
+
+# HWUI
+ro.hwui.disable_sc=false
+ro.hwui.render_ahead=20
+
+# Display
+persist.sys.enable_mtk_scp_dump=1
+persist.sys.sf.color_mode=9
+persist.sys.sf.native_mode=2
+persist.sys.sf.color_saturation=1.1
+qemu.hw.mainkeys=0
+qemu.sf.lcd_density=440
+ro.mtk_display_ovl_support=1
+ro.mediaserver.64b.enable=true
+ro.mtk_pq.ctrld_dpi_support=1
+
+# Misc
+persist.vendor.pms_removable=1
+persist.vendor.vzw_device_type=0
+persist.vendor.mdlog.flush_log_ratio=72340194296137244
+ro.mtk_key_manager_support=1
+ro.support_one_handed_mode=true
+ro.mediatek.version.branch=alps-mp-s0.mssi1.tc16sp-pr6
+
+# WiFi
+mediatek.wlan.ctia=0
+persist.data.iwlan.ipsec.ap=1
+persist.vendor.wfc.sys_wfc_support=1
+ro.mediatek.wlan.p2p=1
+ro.mediatek.wlan.wsc=1
+wifi.interface=wlan0
+wifi.supplicant_scan_interval=15
+wifi.direct.interface=p2p0
+wifi.tethering.interface=ap0
+
+# USB
+ro.sys.usb.bicr=no
+ro.sys.usb.charging.only=yes
+ro.sys.usb.mtp.whql.enable=0
+ro.sys.usb.storage.type=mtp
+sys.usb.mtp.batchcancel=1
+
+# Zygote
+persist.device_config.runtime_native.usap_pool_enabled=true
+ro.zygote.preload.enable=0
+zygote.critical_window.minute=10
+
+# RIL
+persist.radio.multisim.config=dsds
+persist.vendor.radio.telecom.vibrate=0
+ro.telephony.sim.count=2
+
+# Fastbootd
+ro.fastbootd.available=true
+
+# GPU Performance
+ro.mtk_gpu_optimizations=1
+ro.mtk_perf_dds_cpu=1
+
+# Media
+media.stagefright.thumbnail.prefer_hw_codecs=true
+persist.mm.enable.prefetch=true
+ro.min_pointer_dur=8
+
+# Storage
+persist.sys.fuse.passthrough.enable=true
+
+# IPO
+sys.ipo.disable=1
+sys.ipo.pwrdncap=2
+
+# iorapd
+ro.iorapd.enable=false
+
+# Kernel
+ro.kernel.zio=38,108,105,16
+
+# OEM Unlock
+ro.oem_unlock_supported=1

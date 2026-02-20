@@ -1,0 +1,44 @@
+# Audio
+persist.vendor.audio.tuning.def_path         u:object_r:vendor_audio_tuning_prop:s0
+persist.vendor.audiohal.aurisys.pcm_dump_on  u:object_r:vendor_audio_tuning_prop:s0
+persist.vendor.audiohal.p2w_dump_on          u:object_r:vendor_audio_tuning_prop:s0
+persist.vendor.audiohal.pcm_mixer_dump_on    u:object_r:vendor_audio_tuning_prop:s0
+
+# Camera
+ro.vendor.oplus.camera.                      u:object_r:vendor_oplus_camera_prop:s0
+vendor.oplus.                                u:object_r:vendor_oplus_camera_prop:s0
+vendor.oppo.                                 u:object_r:vendor_oplus_camera_prop:s0
+persist.vendor.camera.privapp.list           u:object_r:vendor_persist_camera_prop:s0
+
+# Fingerprint
+persist.vendor.fingerprint.                  u:object_r:vendor_oplus_fingerprint_prop:s0
+persist.vendor.fp.                           u:object_r:vendor_oplus_fingerprint_prop:s0
+vendor.flash.locked                          u:object_r:vendor_oplus_fingerprint_prop:s0
+vendor.fingerprint.                          u:object_r:vendor_oplus_fingerprint_prop:s0
+
+# Touch
+vendor.debug.tpi.                            u:object_r:vendor_oplus_touch_prop:s0
+vendor.oplus.touch.                          u:object_r:vendor_oplus_touch_prop:s0
+vendor.touchdaemon.                          u:object_r:vendor_oplus_touch_prop:s0
+
+# Radio
+persist.vendor.oplus.radio.                  u:object_r:vendor_oplus_radio_prop:s0
+ro.vendor.oplus.radio.                       u:object_r:vendor_oplus_radio_prop:s0
+vendor.oplus.radio.                          u:object_r:vendor_oplus_radio_prop:s0
+
+# Media
+vendor.sys.media.                            u:object_r:vendor_media_prop:s0
+
+# NFC
+ro.vendor.device                             u:object_r:vendor_variant_prop:s0
+ro.vendor.device.variant                     u:object_r:vendor_variant_prop:s0
+
+# USB string
+vendor.usb.product_string                    u:object_r:vendor_variant_prop:s0
+
+# Oplus
+ro.vendor.oplus.market.name                  u:object_r:system_oplus_project_prop:s0
+ro.vendor.oplus.market.enname                u:object_r:system_oplus_project_prop:s0
+
+# Dynamic sensor
+vendor.dynamic_sensor.                       u:object_r:vendor_dynamic_sensor_prop:s0

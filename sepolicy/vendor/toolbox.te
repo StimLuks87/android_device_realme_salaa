@@ -1,0 +1,1 @@
+allow toolbox resourcecache_data_file:dir { read open getattr setattr };

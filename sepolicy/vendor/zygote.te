@@ -1,0 +1,3 @@
+allow zygote self:capability sys_nice;
+allow zygote self:file read;
+allow zygote self:lnk_file read;

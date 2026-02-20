@@ -1,0 +1,6 @@
+allow cameraserver mtk_hal_camera:dir search;
+allow cameraserver mtk_hal_camera:file r_file_perms;
+allow cameraserver mtk_hal_camera:process getattr;
+get_prop(cameraserver, vendor_oplus_camera_prop)
+get_prop(cameraserver, system_oplus_camera_prop)
+dontaudit cameraserver vendor_default_prop:file read;

@@ -1,0 +1,9 @@
+dontaudit untrusted_app vm_data_file:dir r_dir_perms;
+
+allow untrusted_app adbd_tradeinmode:unix_stream_socket connectto;
+allow untrusted_app proc_asound:dir r_dir_perms;
+allow untrusted_app sysfs_batteryinfo:dir { search };
+allow untrusted_app sysfs_headset:file { getattr };
+allow untrusted_app sysfs_net:dir { search };
+allow untrusted_app cgroup:dir r_dir_perms;
+allow untrusted_app metadata_file:dir { getattr };
