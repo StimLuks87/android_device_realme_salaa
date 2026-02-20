@@ -1,0 +1,2 @@
+get_prop(mnld, system_oplus_project_prop)
+get_prop(mnld, system_mtk_mnld_prop)
