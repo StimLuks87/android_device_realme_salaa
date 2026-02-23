@@ -203,7 +203,7 @@ $(call soong_config_set_bool,lineage_health,charging_control_supports_bypass,fal
 
 # Light
 PRODUCT_PACKAGES += \
-    android.hardware.light-service.lineage
+    android.hardware.lights-service.salaa
 
 # Linker
 PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \

@@ -58,6 +58,9 @@
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.biometrics\.fingerprint@2\.1-service                  u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.oplus           u:object_r:hal_fingerprint_default_exec:s0
 
+# Light
+/vendor/bin/hw/android\.hardware\.lights-service\.salaa                                                 u:object_r:hal_light_default_exec:s0
+
 # Firmwares
 /odm/firmware(/.*)?                                                                                     u:object_r:vendor_firmware_file:s0
 /vendor/firmware(/.*)?                                                                                  u:object_r:vendor_firmware_file:s0
