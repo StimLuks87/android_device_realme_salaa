@@ -1,3 +1,5 @@
+allow mobicore tee_device:chr_file rw_file_perms;
+allow mobicore self:capability { net_admin };
+dontaudit mobicore system_prop:file r_file_perms;
 get_prop(mobicore, system_oplus_project_prop)
 get_prop(mobicore, system_cabc_prop)
-dontaudit mobicore system_prop:file r_file_perms;

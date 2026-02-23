@@ -69,6 +69,9 @@ on property:init.svc.vendor.charger=running
     # Stop bootprof
     write /proc/bootprof "0"
 
+    chown system system /dev/graphics/fb0
+    chown system system /dev/dri/card0
+
 on early-fs
     write /proc/bootprof "INIT:early-fs"    
 
@@ -948,7 +951,7 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     # setting RLIMIT_RTPRIO allows binder RT priority inheritance
     rlimit rtprio 10 10
     ioprio rt 4
-    writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
+    task_profiles ProcessCapacityHigh HighPerformance
     onrestart restart audioserver
 
 service vendor.gralloc-4-0 /vendor/bin/hw/android.hardware.graphics.allocator@4.0-service-mediatek

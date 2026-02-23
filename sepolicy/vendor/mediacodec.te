@@ -1,1 +1,2 @@
 allow mediacodec mtk_fmt_sync_device:chr_file rw_file_perms;
+allow mediacodec gpu_device:chr_file rw_file_perms;

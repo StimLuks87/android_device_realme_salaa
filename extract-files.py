@@ -5,14 +5,11 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-from extract_utils.file import File
 from extract_utils.fixups_blob import (
-    BlobFixupCtx,
     blob_fixup,
     blob_fixups_user_type,
 )
 from extract_utils.fixups_lib import (
-    lib_fixup_remove,
     lib_fixups,
     lib_fixups_user_type,
 )
@@ -20,18 +17,12 @@ from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
 )
-from extract_utils.tools import (
-    llvm_objdump_path,
-)
-from extract_utils.utils import (
-    run_cmd,
-)
 
 namespace_imports = [
-    'hardware/oplus',
+    'device/realme/salaa',
     'hardware/mediatek',
     'hardware/mediatek/libmtkperf_client',
-    'device/realme/salaa',
+    'hardware/oplus',
 ]
 
 def lib_fixup_odm_suffix(lib: str, partition: str, *args, **kwargs):
@@ -43,7 +34,6 @@ def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
 lib_fixups: lib_fixups_user_type = {
     **lib_fixups,
     (
-        'android.hardware.keymaster-V3-ndk_platform',
         'vendor.oplus.hardware.biometrics.fingerprint@2.1',
         'vendor.oplus.hardware.commondcs@1.0',
         'libhwm-oplus',
@@ -89,38 +79,13 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libtinyxml2-v34.so'),
     'vendor/lib64/libmtkcam_featurepolicy.so': blob_fixup()
         .binary_regex_replace(b'\x34\xE8\x87\x40\xB9', b'\x34\x28\x02\x80\x52'),
-    (
-        'vendor/bin/mnld',
-        'vendor/lib64/libaalservice.so',
-        'vendor/lib64/libcam.utils.sensorprovider.so',
-        'vendor/lib64/librgbwlightsensor.so'
-    ): blob_fixup()
-       .replace_needed('libsensorndkbridge.so', 'android.hardware.sensors@1.0-convert-shared.so'),
-    (
-        'vendor/lib64/libcam.hal3a.v3.so',
-        'vendor/lib64/libeffecthal.base.so',
-        'vendor/lib64/libmtkcam_grallocutils.so'
-    ): blob_fixup()
-        .replace_needed('libui.so', 'libui-v34.so'),
-
-    # Display
-    'vendor/lib64/hw/hwcomposer.mt6785.so': blob_fixup()
-        .add_needed('libprocessgroup_shim.so'),
+    ('vendor/bin/mnld','vendor/lib64/libaalservice.so', 'vendor/lib64/libaalservice.so', 'vendor/lib64/libcam.utils.sensorprovider.so', 'vendor/lib64/librgbwlightsensor.so'): blob_fixup()
+        .add_needed('android.hardware.sensors@1.0-convert-shared.so'),
 
     # Codec
-    (
-        'vendor/lib64/libcodec2_mtk_c2store.so',
-        'vendor/lib64/libcodec2_mtk_vdec.so',
-        'vendor/lib64/libcodec2_mtk_venc.so',
-        'vendor/lib64/libcodec2_vpp_qt_plugin.so',
-        'vendor/lib64/libcodec2_vpp_rs_plugin.so'
-    ): blob_fixup()
+    ('vendor/lib64/libcodec2_mtk_c2store.so', 'vendor/lib64/libcodec2_mtk_vdec.so', 'vendor/lib64/libcodec2_mtk_venc.so', 'vendor/lib64/libcodec2_vpp_qt_plugin.so', 'vendor/lib64/libcodec2_vpp_rs_plugin.so'): blob_fixup()
         .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
-    (
-        'vendor/lib/libmp4enc_xa.ca7.so',
-        'vendor/lib/libvcodec_oal.so',
-        'vendor/lib/libvp9dec_sa.ca7.so'
-    ): blob_fixup()
+    ('vendor/lib/libmp4enc_xa.ca7.so', 'vendor/lib/libvcodec_oal.so', 'vendor/lib/libvp9dec_sa.ca7.so'): blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
         .clear_symbol_version('__aeabi_memset')
         .clear_symbol_version('__gnu_Unwind_Find_exidx'),
@@ -136,12 +101,13 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('__aeabi_memset')
         .clear_symbol_version('__gnu_Unwind_Find_exidx'),
 
-
     # TEE
     'vendor/lib/libthha.so': blob_fixup()
         .clear_symbol_version('__aeabi_memcpy')
         .clear_symbol_version('__aeabi_memset')
         .clear_symbol_version('__gnu_Unwind_Find_exidx'),
+    'vendor/bin/mcDriverDaemon': blob_fixup()
+        .add_needed('libbinder_shim.so'),
 
     # NFC & Connectivity
     'vendor/etc/init/android.hardware.neuralnetworks@1.3-service-mtk-neuron.rc': blob_fixup()
@@ -155,47 +121,25 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('NFC_DEBUG_ENABLED=0x01', 'NFC_DEBUG_ENABLED=0x00'),
     'vendor/lib64/libmnl.so': blob_fixup()
         .add_needed('libcutils.so'),
-
-    # DRM
-    (
-        'vendor/lib64/libwvhidl.so',
-        'vendor/lib64/mediadrm/libwvdrmengine.so',
-    ): blob_fixup()
-        .replace_needed('libprotobuf-cpp-lite-3.9.1.so', 'libprotobuf-cpp-full-3.9.1.so'),
+    'vendor/bin/hw/android.hardware.secure_element@1.2-service-mediatek': blob_fixup()
+        .replace_needed('libutils.so', 'libutils-v32.so')
+        .replace_needed('libhidlbase.so', 'libhidlbase-v32.so'),
 
     # Shims & Logging
-    (
-        'vendor/lib64/libSQLiteModule_VER_ALL.so',
-        'vendor/lib64/lib3a.flash.so'
-    ): blob_fixup()
-        .patchelf_version('0_17_2')
+    ('vendor/lib64/libSQLiteModule_VER_ALL.so', 'vendor/lib64/lib3a.flash.so'): blob_fixup()
         .add_needed('liblog.so'),
-    (
-        'vendor/lib/libnvram.so',
-        'vendor/lib/libsysenv.so',
-        'vendor/lib64/libnvram.so',
-        'vendor/lib64/libsysenv.so',
-        'vendor/bin/hw/android.hardware.sensors@2.0-service.multihal-mediatek',
-        'vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron',
-        'odm/bin/hw/vendor.oplus.hardware.charger@1.0-service'
-    ): blob_fixup()
+    ('vendor/lib/libnvram.so', 'vendor/lib/libsysenv.so', 'vendor/lib64/libnvram.so', 'vendor/lib64/libsysenv.so', 'vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron', 'odm/bin/hw/vendor.oplus.hardware.charger@1.0-service'): blob_fixup()
         .add_needed('libbase_shim.so'),
 
     # Fix SONAMEs
-    (
-        'vendor/lib/libspeech_enh_lib.so',
-        'vendor/lib/libalsautils-v31.so',
-        'vendor/lib/libnir_neon_driver_ndk.mtk.vndk.so',
-        'vendor/lib64/liboppo_blank_algo.so',
-        'vendor/lib64/libnir_neon_driver_ndk.mtk.vndk.so'
-    ): blob_fixup()
+    ('vendor/lib/libspeech_enh_lib.so', 'vendor/lib/libalsautils-v31.so', 'vendor/lib/libnir_neon_driver_ndk.mtk.vndk.so', 'vendor/lib64/liboppo_blank_algo.so', 'vendor/lib64/libnir_neon_driver_ndk.mtk.vndk.so', 'vendor/lib64/libwifi-hal-mtk.so'): blob_fixup()
         .fix_soname(),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
     'salaa',
     'realme',
-    #blob_fixups=blob_fixups,
+    blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
     #add_firmware_proprietary_file=True,

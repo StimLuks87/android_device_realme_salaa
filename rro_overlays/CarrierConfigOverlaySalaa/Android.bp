@@ -6,6 +6,7 @@
 
 runtime_resource_overlay {
     name: "CarrierConfigOverlaySalaa",
+    theme: "CarrierConfigOverlay",
     aaptflags: ["--keep-raw-values"],
-    vendor: true,
+    product_specific: true,
 }

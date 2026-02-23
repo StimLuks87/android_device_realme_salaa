@@ -1,2 +1,9 @@
+init_daemon_domain(mnld)
+
+net_domain(mnld)
+
+allow mnld self:capability { net_admin net_raw };
+allow mnld hal_gnss_service:unix_dgram_socket sendto;
+
 get_prop(mnld, system_oplus_project_prop)
 get_prop(mnld, system_mtk_mnld_prop)

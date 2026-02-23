@@ -1,2 +1,4 @@
 allow priv_app zygote:unix_stream_socket getopt;
 allow priv_app proc_filesystems:file r_file_perms;
+allow priv_app surfaceflinger_service:service_manager find;
+allow priv_app surfaceflinger:binder { call transfer };

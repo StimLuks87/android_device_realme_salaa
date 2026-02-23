@@ -22,34 +22,12 @@ cc_prebuilt_library_shared {
     ],
 	target: {
 		android_arm64: {
-			srcs: ["libbinder-v32.so"],
+			srcs: ["arm64/libbinder-v32.so"],
 		},
 	},
 	compile_multilib: "64",
 	check_elf_files: false,
 }
-
-//cc_prebuilt_library_shared {
-	//name: "libhidlbase-v32",
-    //vendor_available: true,
-	//strip: {
-		//none: true,
-	//},
-    //shared_libs: [
-       // "libbase",
-       // "libc++",
-       // "libcutils",
-       // "liblog",
-       // "libutils",
-    //],
-	//target: {
-		//android_arm64: {
-			//srcs: ["libhidlbase-v32.so"],
-		//},
-	//},
-	//compile_multilib: "64",
-	//check_elf_files: false,
-//}
 
 cc_prebuilt_library_shared {
     name: "libtinyalsa-v32",
@@ -70,3 +48,27 @@ cc_prebuilt_library_shared {
     compile_multilib: "32",
     check_elf_files: false,
 }
+
+/*
+cc_prebuilt_library_shared {
+	name: "libhidlbase-v32",
+    vendor_available: true,
+	strip: {
+		none: true,
+	},
+    shared_libs: [
+        "libbase",
+        "libc++",
+        "libcutils",
+        "liblog",
+        "libutils",
+    ],
+	target: {
+		android_arm64: {
+			srcs: ["arm64/libhidlbase-v32.so"],
+		},
+	},
+	compile_multilib: "64",
+	check_elf_files: false,
+}
+*/

@@ -1318,11 +1318,19 @@ vendor/lib64/libgralloc_metadata.so
 vendor/lib64/libgralloctypes_mtk.so
 vendor/lib64/libscltm.so
 
-# Engineer Mode
-vendor/lib64/vendor.mediatek.hardware.engineermode@1.0.so
-vendor/lib64/vendor.mediatek.hardware.engineermode@1.1.so
-vendor/lib64/vendor.mediatek.hardware.engineermode@1.2.so
-vendor/lib64/vendor.mediatek.hardware.engineermode@1.3.so
+# Engineer Camera
+my_product/etc/camera/engineer_camera_config:system_ext/etc/camera/engineer_camera_config
+
+# Engineering - from TECNO-CK9n UP1A.230519.001
+system_ext/app/EngineerMode/EngineerMode.apk|8f64579fe7db633fef0668bd24937d1f32fc433b
+system_ext/lib/libem_support_jni.so|afab3ca5e5bdf8619e66606652a39fac5692d99b
+system_ext/lib64/libem_support_jni.so|21dddde25b7134b186e68052910adf2b4dba8b86
+vendor/bin/em_hidl|bf23d25f7bd6af4bfd9f34c64609e469b8b1d4b2
+vendor/etc/init/em_hidl_user.rc|bdb5893df3e78d2d2adaf72bc7e56dfeee0be308
+vendor/lib64/vendor.mediatek.hardware.engineermode@1.0.so|444376addf581bfc66409ad39a73ffe498e4142e
+vendor/lib64/vendor.mediatek.hardware.engineermode@1.1.so|a13d422113c5bde4dc8a36336a6436e09cb37b86
+vendor/lib64/vendor.mediatek.hardware.engineermode@1.2.so|6cdc256e6559cba5f47b4aa1382d13790e91773c
+vendor/lib64/vendor.mediatek.hardware.engineermode@1.3.so|1c170c8e48c5cd52fd0bc903758be03c16e90091
 
 # Fingerprint
 odm/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service
@@ -1552,18 +1560,41 @@ vendor/lib/libfgauge_gm30.so
 
 # Hotword Enrollment
 my_product/framework/com.android.hotwordenrollment.common.util.jar:system_ext/framework/com.android.hotwordenrollment.common.util.jar
-my_product/priv-app/HotwordEnrollmentOKGoogleCORTEXM4/HotwordEnrollmentOKGoogleCORTEXM4.apk:product/priv-app/HotwordEnrollmentOKGoogleCORTEXM4/HotwordEnrollmentOKGoogleCORTEXM4.apk
+my_product/priv-app/HotwordEnrollmentOKGoogleCORTEXM4.apk:product/priv-app/HotwordEnrollmentOKGoogleCORTEXM4/HotwordEnrollmentOKGoogleCORTEXM4.apk
 my_product/etc/sysconfig/com.android.hotwordenrollment.common.util.xml:system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
 
 # IFAA
 odm/etc/vintf/manifest/manifest_oplus_ifaa.xml
 
+# IMS (Video Telephony) - from rothko OS3.0.4.0.WNNEUXM
+system_ext/bin/vtservice|4a8759f67cc4f238983c57193d88d1cc13956e06
+system_ext/etc/init/init.vtservice.rc|50a2249906edc06059b443513db47a2ddc0490dc
+system_ext/lib64/libcomutils.so|05cdfb5eb128b670ec182235e75efeec2dd21773
+system_ext/lib64/libimsma.so|cf108c7c9658041aa93c89b4ea2cee96901a2b85
+system_ext/lib64/libimsma_adapt.so|2d19ab68fa39b9f4eb24be744ae18ca98f70b767
+system_ext/lib64/libimsma_rtp.so|c48cf35f2cf73e92841fe39d2e0c7d816b505ad0
+system_ext/lib64/libimsma_socketwrapper.so|aaa678a3fe154066bd47c9ed67105a7b941b7cf9
+system_ext/lib64/libmtk_vt_service.so|ce17fe8d78fec13ddbfa8e6bbcb9a25366026c1b
+system_ext/lib64/libmtk_vt_wrapper.so|a06c3ee31bc95393e1ee8f682698ba64e09bcad0
+system_ext/lib64/libsignal.so|38ab61c18cedce065ff16cbc71dbdf15681538f3
+system_ext/lib64/libsink-mtk.so|cd2ba9081f3d72f65a2ab5bfe3f9fbd15f2edcf0
+system_ext/lib64/libsource.so|6e3a9c7bde97aa6e8739caa50b6d828591cd1d98
+system_ext/lib64/libvcodec_cap.so|57490ed96a72df49fdf7204e2c0db03aa12b439e
+system_ext/lib64/libvcodec_capenc.so|013f0131a424f8c2fc3815b02e466bc03a197324
+system_ext/lib64/libvt_avsync.so|548242bff6b4472f212bf18cdec7753088885a10
+system_ext/lib64/vendor.mediatek.hardware.videotelephony-V1-ndk.so|8b13966bdf703d2eae99d4f65a2e77fbd939064c
+system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so|01b68c7597d585ec39441628f66b02b3b091db99
+
+# IMS (Video Telephony) - from TECNO-CK9n UP1A.230519.001
+vendor/bin/hw/vtservice_hidl|047b26f80b338b7d0869840d243eefebe82d56f5
+vendor/etc/init/init.vtservice_hidl.rc|f2e992214ed5bb99c2c2a135cf1f0996dba8a8a0
+vendor/lib64/hw/vendor.mediatek.hardware.videotelephony@1.0-impl.so|bb9ff554802e7bffb72cf24604109dafcf0019fc
+vendor/lib64/vendor.mediatek.hardware.videotelephony@1.0.so;MODULE_SUFFIX=_vendor|5e228669d2c575e38fc02a13404f31bc22494b87
+
 # IMS
 odm/lib/vendor.oplus.hardware.ims@1.0.so
 odm/lib64/vendor.oplus.hardware.ims@1.0.so
-system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
 vendor/bin/hw/vendor.mediatek.hardware.mmagent@1.1-service
-vendor/bin/hw/vtservice_hidl
 vendor/bin/rcs_volte_stack
 vendor/bin/volte_clientapi_ua
 vendor/bin/volte_imcb
@@ -1577,7 +1608,6 @@ vendor/etc/init/init.volte_imsm_93.rc
 vendor/etc/init/init.volte_md_status.rc
 vendor/etc/init/init.volte_stack.rc
 vendor/etc/init/init.volte_ua.rc
-vendor/etc/init/init.vtservice_hidl.rc
 vendor/etc/init/init.xcap.rc
 vendor/etc/init/vendor.mediatek.hardware.mmagent@1.1-service.rc
 vendor/etc/init/volte_clientapi_ua.rc
@@ -1590,18 +1620,14 @@ vendor/lib/libvolte_core_shr.so
 vendor/lib/libvolte_xdmc_shr.so
 vendor/lib/libvt_custom.so
 vendor/lib/vendor.mediatek.hardware.rcs@2.0.so
-vendor/lib64/hw/vendor.mediatek.hardware.videotelephony@1.0-impl.so
 vendor/lib64/libipsec_ims_shr.so
 vendor/lib64/libmmagent.so
 vendor/lib64/vendor.mediatek.hardware.clientapi@1.0.so
 vendor/lib64/vendor.mediatek.hardware.mmagent@1.0.so
 vendor/lib64/vendor.mediatek.hardware.mmagent@1.1.so
-vendor/lib64/vendor.mediatek.hardware.videotelephony@1.0.so;MODULE_SUFFIX=_vendor
 
 # Keymaster
-odm/lib/android.hardware.keymaster-V3-ndk_platform.so;MODULE_SUFFIX=_odm
 odm/lib/libtrustonic_keybox_ca.so
-odm/lib64/android.hardware.keymaster-V3-ndk_platform.so;MODULE_SUFFIX=_odm
 odm/lib64/libtrustonic_keybox_ca.so
 vendor/bin/hw/android.hardware.keymaster@4.0-service.trustonic
 vendor/bin/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-service
@@ -2001,8 +2027,6 @@ odm/lib64/libmmc.so
 odm/lib64/libmxmafa.so
 odm/lib64/oplus.sensors.ssc.so
 odm/lib64/vendor.oplus.hardware.oplusSensor@1.0.so
-vendor/etc/init/android.hardware.sensors@2.0-service.multihal-mediatek.rc
-vendor/bin/hw/android.hardware.sensors@2.0-service.multihal-mediatek
 vendor/lib64/hw/sensors.mt6785.so
 vendor/lib64/libakm.so
 vendor/lib64/libhwm-oplus.so
@@ -2141,11 +2165,11 @@ vendor/etc/init/init.wfca.rc
 vendor/etc/init/init.wod.rc
 vendor/etc/init/networksetting.rc
 vendor/etc/init/wlan_assistant.rc
+vendor/lib64/libwifi-hal.so:vendor/lib64/libwifi-hal-mtk.so;FIX_SONAME
 vendor/lib64/libapmonitor_vendor.so
-vendor/lib64/libwapi.so
 vendor/lib64/libwifitest.so
 vendor/lib64/libwo.so
 vendor/lib64/vendor.mediatek.hardware.apmonitor@2.0.so
 vendor/lib64/vendor.mediatek.hardware.mdmonitor@1.0.so
 
-#Device RMX2156_11_F.18, unless pinned
+#Device RMX2155_11_F.11, unless pinned

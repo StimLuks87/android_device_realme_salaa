@@ -31,19 +31,15 @@ ro.hwui.render_ahead=20
 
 # Display
 persist.sys.enable_mtk_scp_dump=1
-persist.sys.sf.color_mode=9
-persist.sys.sf.native_mode=2
-persist.sys.sf.color_saturation=1.1
-qemu.hw.mainkeys=0
-qemu.sf.lcd_density=440
 ro.mtk_display_ovl_support=1
 ro.mediaserver.64b.enable=true
 ro.mtk_pq.ctrld_dpi_support=1
+qemu.hw.mainkeys=0
 
 # Misc
 persist.vendor.pms_removable=1
 persist.vendor.vzw_device_type=0
-persist.vendor.mdlog.flush_log_ratio=72340194296137244
+persist.vendor.mdlog.flush_log_ratio=0
 ro.mtk_key_manager_support=1
 ro.support_one_handed_mode=true
 ro.mediatek.version.branch=alps-mp-s0.mssi1.tc16sp-pr6
@@ -100,6 +96,3 @@ ro.iorapd.enable=false
 
 # Kernel
 ro.kernel.zio=38,108,105,16
-
-# OEM Unlock
-ro.oem_unlock_supported=1

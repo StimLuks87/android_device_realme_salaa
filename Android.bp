@@ -8,7 +8,6 @@ soong_namespace {
     imports: [
         "hardware/mediatek",
         "hardware/oplus",
-        "hardware/dolby",
     ],
 }
 

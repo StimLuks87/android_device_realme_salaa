@@ -16,11 +16,12 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 $(call inherit-product, device/realme/salaa/device.mk)
 
 # Derp flags
+DERPFEST_BUILD_TYPE := Unofficial
+DERPFEST_BUILD_VARIANT := Stable
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_GAPPS_ARCH := arm64
 TARGET_SUPPORTS_GOOGLE_RECORDER := false
-DERPFEST_BUILD_TYPE := Unofficial
-DERPFEST_BUILD_VARIANT := Stable
+
 IS_PHONE := true
 
 # Device Information
