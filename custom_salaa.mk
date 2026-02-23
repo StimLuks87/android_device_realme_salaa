@@ -9,23 +9,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common PixelOS stuff.
+$(call inherit-product, vendor/custom/config/common_full_phone.mk)
 
 # Inherit from device makefile.
 $(call inherit-product, device/realme/salaa/device.mk)
 
-# Derp flags
-DERPFEST_BUILD_TYPE := Unofficial
-DERPFEST_BUILD_VARIANT := Stable
-TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_GAPPS_ARCH := arm64
-TARGET_SUPPORTS_GOOGLE_RECORDER := false
-
-IS_PHONE := true
-
 # Device Information
-PRODUCT_NAME := lineage_salaa
+PRODUCT_NAME := custom_salaa
 PRODUCT_DEVICE := salaa
 PRODUCT_MANUFACTURER := realme
 PRODUCT_BRAND := realme
@@ -35,5 +26,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-realme
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="sys_mssi_64_cn_armv82-user 12 SP1A.210812.016 1711679158901 release-keys" \
+    DeviceName=salaa \
     DeviceProduct=salaa \
     SystemName=salaa
