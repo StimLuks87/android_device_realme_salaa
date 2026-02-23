@@ -5,6 +5,8 @@
 //
 
 runtime_resource_overlay {
-    name: "SettingsProviderOverlayNarzo30",
-    vendor: true,
+    name: "CarrierConfigOverlayDevice",
+    theme: "CarrierConfigOverlay",
+    aaptflags: ["--keep-raw-values"],
+    product_specific: true,
 }

@@ -5,6 +5,7 @@
 //
 
 runtime_resource_overlay {
-    name: "SettingsProviderOverlayNarzo30",
+    name: "TetheringResOverlayDevice",
+    theme: "TetheringResOverlay",
     vendor: true,
 }

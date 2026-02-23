@@ -6,10 +6,11 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.settingsprovider.overlay.narzo30">
+    <application android:hasCode="false" />
     <overlay
         android:targetPackage="com.android.providers.settings"
         android:requiredSystemPropertyName="ro.product.product.device"
         android:requiredSystemPropertyValue="RMX2156L1"
         android:isStatic="true"
-        android:priority="1"/>
+        android:priority="800" />
 </manifest>

@@ -5,6 +5,6 @@
 //
 
 runtime_resource_overlay {
-    name: "SettingsProviderOverlayNarzo30",
+    name: "SettingsProviderOverlayDevice",
     vendor: true,
 }

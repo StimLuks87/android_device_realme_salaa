@@ -5,6 +5,6 @@
 //
 
 runtime_resource_overlay {
-    name: "SettingsProviderOverlayNarzo30",
-    vendor: true,
+    name: "PowerOffAlarmOverlayDevice",
+    product_specific: true,
 }

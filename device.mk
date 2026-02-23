@@ -234,27 +234,24 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/nfc_features.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/sku_nfc/nfc_features.xml
 
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
-
-# RRO (Runtime Resource Overlay)
-PRODUCT_ENFORCE_RRO_TARGETS := *
-
+# Runtime Resource Overlays 
 PRODUCT_PACKAGES += \
-    CarrierConfigOverlaySalaa \
+    ApertureOverlayDevice \
+    ApertureQRScannerOverlayDevice \
+    CarrierConfigOverlayDevice \
+    DialerOverlayDevice \
+    FrameworkResOverlayDevice \
+    LauncherOverlayDevice \
+    NfcOverlayDevice \
+    OplusDozeOverlayDevice \
+    PowerOffAlarmOverlayDevice \
+    SettingsOverlayDevice \
     SettingsProviderOverlay7 \
     SettingsProviderOverlayNarzo30 \
-    SettingsProviderOverlaySalaa \
-    SettingsOverlaySalaa \
-    SystemUIOverlaySalaa \
-    FrameworkResOverlaySalaa \
-    PowerOffAlarmOverlaySalaa \
-    TetheringConfigOverlaySalaa \
-    NfcOverlaySalaa \
-    WifiOverlaySalaa \
-    OplusDozeOverlay
+    SettingsProviderOverlayDevice \
+    SystemUIOverlayDevice \
+    TetheringResOverlayDevice \
+    WifiResOverlayDevice
 
 # Permission
 PRODUCT_COPY_FILES += \
