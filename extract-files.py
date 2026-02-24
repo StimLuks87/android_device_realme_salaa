@@ -22,6 +22,7 @@ namespace_imports = [
     'device/realme/salaa',
     'hardware/mediatek',
     'hardware/mediatek/libmtkperf_client',
+    'hardware/mediatek/libaedv',
     'hardware/oplus',
 ]
 

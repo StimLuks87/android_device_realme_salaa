@@ -402,6 +402,7 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)/aidl/touch \
     hardware/google/interfaces \
     hardware/google/pixel \
+    hardware/mediatek/libaedv \
     hardware/mediatek/libmtkperf_client \
     hardware/mediatek/wlan/wifi_hal \
     hardware/mediatek \

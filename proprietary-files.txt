@@ -6,9 +6,7 @@ vendor/lib64/libaalservice.so
 
 # AEE
 vendor/lib/libladder.so
-vendor/lib/libaedv.so
 vendor/lib64/libladder.so
-vendor/lib64/libaedv.so
 
 # APU
 vendor/lib/libapu_mdw.so
