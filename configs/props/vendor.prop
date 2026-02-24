@@ -126,6 +126,15 @@ ro.vendor.smvr.p2batch.hd=8
 ro.vendor.smvr.p2batch.vga=16
 vendor.mtk_thumbnail_optimization=true
 
+# Dalvik
+dalvik.vm.dex2oat64.enabled=true
+
+# Dex2oat
+dalvik.vm.dex2oat-cpu-set=4,5,6,7
+dalvik.vm.dex2oat-threads=4
+dalvik.vm.image-dex2oat-cpu-set=4,5,6,7
+dalvik.vm.image-dex2oat-threads=4
+
 # GPS
 ro.vendor.mtk_agps_app=1
 ro.vendor.mtk_gps_support=1
