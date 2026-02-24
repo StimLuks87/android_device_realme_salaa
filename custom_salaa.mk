@@ -24,8 +24,12 @@ PRODUCT_MODEL := RMX2151/RMX2155/RMX2156
 
 PRODUCT_GMS_CLIENTID_BASE := android-realme
 
+PRODUCT_SYSTEM_NAME := RMX2155
+PRODUCT_SYSTEM_DEVICE := RMX2155L1
+
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="sys_mssi_64_cn_armv82-user 12 SP1A.210812.016 1711679158901 release-keys" \
-    DeviceName=salaa \
-    DeviceProduct=salaa \
-    SystemName=salaa
+    BuildFingerprint=realme/RMX2155/RMX2155L1:12/SP1A.210812.016/Q.GDPR.bf75e7-1:user/release-keys \
+    SystemName=$(PRODUCT_SYSTEM_NAME) \
+    DeviceName=$(PRODUCT_SYSTEM_DEVICE) \
+    DeviceProduct=$(PRODUCT_SYSTEM_NAME)
