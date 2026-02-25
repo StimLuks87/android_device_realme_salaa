@@ -15,6 +15,9 @@ $(call inherit-product, vendor/custom/config/common_full_phone.mk)
 # Inherit from device makefile.
 $(call inherit-product, device/realme/salaa/device.mk)
 
+# Flags
+IS_OFFICIAL := true
+
 # Device Information
 PRODUCT_NAME := custom_salaa
 PRODUCT_DEVICE := salaa
