@@ -16,6 +16,7 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 # OTA package
 AB_OTA_UPDATER := false
 PRODUCT_SOONG_NAMESPACES += bootable/deprecated-ota
+PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/lineage-priv/keys/releasekey
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 29
