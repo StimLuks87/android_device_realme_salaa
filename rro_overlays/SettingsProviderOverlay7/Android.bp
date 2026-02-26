@@ -6,6 +6,5 @@
 
 runtime_resource_overlay {
     name: "SettingsProviderOverlay7",
-    resource_dirs: ["res"],
     vendor: true,
 }
