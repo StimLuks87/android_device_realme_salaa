@@ -1,1 +1,1 @@
-allow surfaceflinger mtk_hal_mmagent:binder call;
+binder_call(surfaceflinger, mtk_hal_mmagent)

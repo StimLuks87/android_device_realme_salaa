@@ -3,18 +3,13 @@
 # IMPORTANT: Do not create world writable files or directories.
 # This is a common source of Android security bugs.
 #
-import /system_ext/etc/init/hw/vendor_init_as_system.rc
 import /init.environ.rc
 import /vendor/etc/init/hw/init.aee.rc
 import /system_ext/etc/init/hw/init.aee.rc
-import /system/etc/init/update_verifier.rc
 import /vendor/etc/init/android.hardware.boot@1.2-service.rc
 import /vendor/etc/init/android.hardware.boot@1.2-service-lazy.rc
-import /vendor/etc/init/android.hardware.health@2.1-service.rc
 import /vendor/etc/init/trustonic.rc
 import ${ro.vendor.rc}meta_init.connectivity.rc
-import /vendor/etc/init/hw/meta_init.project.rc
-import /vendor/etc/init/microtrust.rc
 #copy from system/etc for APEX
 import /system/etc/init/apexd.rc
 import /system/etc/init/art_apex_boot_integrity.rc
@@ -106,29 +101,6 @@ on init
     # Mount cgroup mount point for cpu accounting
     mount cgroup none /acct cpuacct
     mkdir /acct/uid
-
-    # Create energy-aware scheduler tuning nodes
-    mkdir /dev/stune
-    mount cgroup none /dev/stune nodev noexec nosuid schedtune
-    mkdir /dev/stune/foreground
-    mkdir /dev/stune/background
-    mkdir /dev/stune/top-app
-    mkdir /dev/stune/rt
-    chown system system /dev/stune
-    chown system system /dev/stune/foreground
-    chown system system /dev/stune/background
-    chown system system /dev/stune/top-app
-    chown system system /dev/stune/rt
-    chown system system /dev/stune/tasks
-    chown system system /dev/stune/foreground/tasks
-    chown system system /dev/stune/background/tasks
-    chown system system /dev/stune/top-app/tasks
-    chown system system /dev/stune/rt/tasks
-    chmod 0664 /dev/stune/tasks
-    chmod 0664 /dev/stune/foreground/tasks
-    chmod 0664 /dev/stune/background/tasks
-    chmod 0664 /dev/stune/top-app/tasks
-    chmod 0664 /dev/stune/rt/tasks
 
     # Permissions for System Server and daemons.
     chown system system /sys/power/autosleep

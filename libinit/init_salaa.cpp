@@ -83,7 +83,6 @@ void set_device_props(void) {
                 break;
             default:
                 LOG(ERROR) << "Unknown operator found: " << operator_code;
-                search_variant(variants);
                 break;
         }
     } else {

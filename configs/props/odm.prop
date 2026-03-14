@@ -13,6 +13,6 @@ ro.vendor.oplus.sensor.report_brightness=true
 
 # Oplus
 ro.oplus.image.odm.type=20743
-ro.oplus.image.odm.version=version_stub.f62907f3
-ro.product.hw=20743
-ro.separate.soft=20743
+ro.oplus.image.odm.version=version_stub.0a6d11e4
+ro.product.hw=2068A
+ro.separate.soft=2068A

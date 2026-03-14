@@ -14,7 +14,6 @@ type vendor_sysfs_battery_supply, fs_type, sysfs_type;
 type vendor_proc_batt_param, fs_type, proc_type;
 type vendor_proc_charger, fs_type, proc_type;
 type vendor_proc_tbatt_pwroff, fs_type, proc_type;
-type vendor_proc_wireless, fs_type, proc_type;
 type vendor_proc_oplus_fastchg, fs_type, proc_type;
 type vendor_firmware_file, file_type, vendor_file_type;
 type sysfs_chargelevel, fs_type, sysfs_type;
@@ -35,6 +34,7 @@ type vendor_sysfs_oplus_virtual_sensor, fs_type, sysfs_type;
 type vendor_proc_oplus_sensor_feature, fs_type, proc_type;
 type vendor_proc_oplus_sensor_param, fs_type, proc_type;
 type vendor_proc_oplus_als_file, fs_type, proc_type;
+type vendor_proc_oplus_sensor_als, fs_type, proc_type;
 
 # Oplus Version
 type vendor_proc_oplus_version, fs_type, proc_type;
@@ -55,7 +55,3 @@ type vendor_sysfs_otg_switch, fs_type, sysfs_type;
 
 # Power
 type pps_socket, file_type;
-
-# Resource Access Control
-type persist_lost_found_file, file_type, vendor_file_type;
-type persist_rpmb_status_file, file_type, vendor_file_type;

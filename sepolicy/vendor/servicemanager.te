@@ -1,5 +1,4 @@
-allow servicemanager hal_power_default:dir search;
-allow servicemanager hal_power_default:file r_file_perms;
-allow servicemanager hal_power_default:process getattr;
-binder_call(servicemanager, hal_power_default)
-binder_call(servicemanager, mediaswcodec)
+allow servicemanager hal_thermal_default:process { getattr };
+allow servicemanager hal_power_default:binder call;
+allow servicemanager surfaceflinger:binder call;
+allow servicemanager mediaswcodec:binder call;

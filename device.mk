@@ -15,51 +15,40 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 
 # OTA package
 AB_OTA_UPDATER := false
-PRODUCT_SOONG_NAMESPACES += bootable/deprecated-ota
+
+# Keys
+PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/evolution-priv/keys/releasekey
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 29
 
 # AAPT
+TARGET_SCREEN_HEIGHT := 2400
+TARGET_SCREEN_WIDTH := 1080
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
-
-# ART
-WITH_DEXPREOPT := true
-DEX_PREOPT_DEFAULT := generate-vdex-and-image
-WITH_DEXPREOPT_DEBUG_INFO := false
-
-# Dex/ART optimization
-PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := everything
-PRODUCT_DEX_PREOPT_GENERATE_DM_FILES :=true
-PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
-PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
-DONT_DEXPREOPT_PREBUILTS := true
-USE_DEX2OAT_DEBUG := false
-
-# Speed profile services
-PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
-PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
-PRODUCT_SYSTEM_SERVER_DEBUG_INFO := false
-PRODUCT_OTHER_JAVA_DEBUG_INFO := false
 
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := true
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS=false
 
+# Dex
+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
+PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
+PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+
 # Audio
+TARGET_EXCLUDES_AUDIOFX := true
+
 PRODUCT_PACKAGES += \
     android.hardware.audio.service \
     android.hardware.audio@7.0-impl:32 \
     android.hardware.audio.effect@7.0-impl:32 \
-    android.hardware.soundtrigger@2.3-impl:32 \
-    android.hardware.audio@7.0.vendor:64
+    android.hardware.bluetooth.audio-impl:32 \
+    android.hardware.soundtrigger@2.3-impl:32
 
 PRODUCT_PACKAGES += \
-    libaudiofoundation.vendor:32 \
-    libalsautils:32 \
-    libdynproc:32 \
-    libhapticgenerator:32 \
+    audio.bluetooth.default:32 \
     audio.primary.default:32 \
     audio.r_submix.default:32 \
     audio.usb.default:32 \
@@ -70,24 +59,16 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio,$(TARGET_COPY_OUT_VENDOR)/etc)
 
 PRODUCT_COPY_FILES += \
+    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
-    frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
-
-# Speaker
-$(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth-service.mediatek \
-    android.hardware.bluetooth.audio-impl:32 \
-    audio.bluetooth.default:32
-
-PRODUCT_PACKAGES += \
-   vendor.mediatek.hardware.bluetooth.audio@2.1.vendor:32 \
-   vendor.mediatek.hardware.bluetooth.audio@2.2.vendor:32
+    android.hardware.bluetooth-service.mediatek
 
 # Library Codec
 PRODUCT_PACKAGES += \
@@ -114,10 +95,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FMRadio
 
-# Remove unwanted packages
-PRODUCT_PACKAGES += \
-    RemovePackages
-
 # BesLoudness
 PRODUCT_PACKAGES += \
     BesLoudness
@@ -135,10 +112,13 @@ PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
 # Graphics
-$(call soong_config_set_bool,libgui,support_mtk_ged_kpi,true)
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.2-service \
     android.hardware.memtrack-service.mediatek-mali
+
+# Display saturation adjust
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.sys.sf.color_saturation?=1.37
 
 # ConfigStore
 PRODUCT_PACKAGES += \
@@ -150,18 +130,19 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors-service-multihal.salaa \
+    android.hardware.sensors-service.multihal \
     android.hardware.sensors@2.0-subhal-impl-1.0:64 \
     sensors.dynamic_sensor_hal:64 \
-    sensors.oplus_virtual:64
+    sensors.oplus:64
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
+# Speaker
+$(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
+
 # Fastboot
-$(call soong_config_set_bool,fastbootd,bypass_lock_state,true)
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot-service.example_recovery \
     fastbootd
 
 # Gatekeeper
@@ -174,26 +155,19 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss-service.mediatek
 
 PRODUCT_PACKAGES += \
-    android.hardware.gnss.measurement_corrections@1.0.vendor \
-    android.hardware.gnss.measurement_corrections@1.1.vendor \
-    android.hardware.gnss.visibility_control@1.0.vendor \
-    android.hardware.gnss@1.0.vendor \
-    android.hardware.gnss@1.1.vendor \
-    android.hardware.gnss@2.0.vendor \
-    android.hardware.gnss@2.1.vendor \
-    libexpat.vendor \
-    libcurl.vendor \
-    libssl.vendor
+    android.hardware.gnss.measurement_corrections@1.0.vendor:64\
+    android.hardware.gnss.measurement_corrections@1.1.vendor:64 \
+    android.hardware.gnss.visibility_control@1.0.vendor:64\
+    android.hardware.gnss@1.0.vendor:64 \
+    android.hardware.gnss@1.1.vendor:64 \
+    android.hardware.gnss@2.0.vendor:64 \
+    android.hardware.gnss@2.1.vendor:64 \
+    libexpat.vendor:64 \
+    libcurl.vendor:64 \
+    libssl.vendor:64
 
 # IMS
 $(call inherit-product, vendor/mediatek/ims/ims.mk)
-
-# Radio
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full.vendor:64 \
-    libprotobuf-cpp-lite.vendor:64 \
-    libprotobuf-cpp-full-3.9.1-vendorcompat:64 \
-    libprotobuf-cpp-lite-3.9.1-vendorcompat:64
 
 # Mtk In Call Service
 PRODUCT_PACKAGES += \
@@ -202,14 +176,16 @@ PRODUCT_PACKAGES += \
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health-service.example \
-    android.hardware.health-service.example_recovery
+    android.hardware.health-service.example_recovery \
+    android.hardware.health@2.1.vendor \
+    charger_res_images_vendor
 
 # Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(DEVICE_PATH):init_salaa)
 
 # Lineage Health
 PRODUCT_PACKAGES += \
-    vendor.lineage.health-service.default
+    android.hardware.light-service.lineage
 
 $(call soong_config_set,lineage_health,charging_control_charging_disabled,0)
 $(call soong_config_set,lineage_health,charging_control_charging_enabled,1)
@@ -224,9 +200,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
     $(LOCAL_PATH)/configs/linker/linker.config.json
 
+# Keymaster
 PRODUCT_PACKAGES += \
     libkeymaster4support.vendor:64 \
-    libsoft_attestation_cert.vendor:64
+    libsoft_attestation_cert.vendor:64 \
+    libkeystore-engine-wifi-hidl \
+    libkeystore-wifi-hidl \
 
 # MediaCodec
 $(call soong_config_set_bool,android_hardware_mediatek_codec2,link_v33_libstagefright_foundation,true)
@@ -235,6 +214,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/media,$(TARGET_COPY_OUT_VENDOR)/etc)
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.stagefright.c2inputsurface=-1 \
+    debug.stagefright.ccodec=4
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -246,27 +229,26 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/nfc_features.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/sku_nfc/nfc_features.xml
 
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
-
-# RRO (Runtime Resource Overlay)
-PRODUCT_ENFORCE_RRO_TARGETS := *
-
+# Runtime Resource Overlays
+$(call inherit-product, hardware/mediatek/overlay/mssi.mk)
 PRODUCT_PACKAGES += \
-    CarrierConfigOverlaySalaa \
+    ApertureOverlayDevice \
+    ApertureQRScannerOverlayDevice \
+    CarrierConfigOverlayDevice \
+    DialerOverlayDevice \
+    FrameworkResOverlayDevice \
+    LauncherOverlayDevice \
+    NfcOverlayDevice \
+    NcmTetheringOverlay \
+    OplusDozeOverlayDevice \
+    PowerOffAlarmOverlayDevice \
+    SettingsOverlayDevice \
     SettingsProviderOverlay7 \
     SettingsProviderOverlayNarzo30 \
-    SettingsProviderOverlaySalaa \
-    SettingsOverlaySalaa \
-    SystemUIOverlaySalaa \
-    FrameworkResOverlaySalaa \
-    PowerOffAlarmOverlaySalaa \
-    TetheringConfigOverlaySalaa \
-    NfcOverlaySalaa \
-    WifiOverlaySalaa \
-    OplusDozeOverlay
+    SettingsProviderOverlayDevice \
+    SystemUIOverlayDevice \
+    LineageSDKOverlayDevice \
+    LineageSettingsOverlayDevice
 
 # Permission
 PRODUCT_COPY_FILES += \
@@ -329,11 +311,10 @@ PRODUCT_COPY_FILES += \
 # Hotword Enrollment
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/hiddenapi-package-allowlist-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/hotword-hiddenapi-package-allowlist.xml \
-    $(LOCAL_PATH)/configs/permissions/privapp-permissions-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-hotwordenrollment.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotwordenrollment.xml
 
 # Mediatek
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/permissions/privapp-permissions-com.mediatek.engineermode.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-com.mediatek.engineermode.xml \
     $(LOCAL_PATH)/configs/permissions/com.mediatek.hardware.vow_dsp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.mediatek.hardware.vow_dsp.xml
 
 # Public
@@ -350,15 +331,18 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service.pixel-libperfmgr
 
 PRODUCT_PACKAGES += \
-    vendor.mediatek.hardware.mtkpower@1.2-service.stub \
+    vendor.mediatek.hardware.mtkpower@1.2-service.stub
 
 # Power | Dummy mtkperf lib
 PRODUCT_PACKAGES += \
-    libmtkperf_client_vendor \
-    libmtkperf_client
+    libmtkperf_client_vendor:64 \
+    libmtkperf_client:64
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
+# Properties
+include $(LOCAL_PATH)/configs/props/vendor_logtag.mk
 
 # Cgroup and task_profiles
 PRODUCT_COPY_FILES += \
@@ -374,22 +358,15 @@ PRODUCT_PACKAGES += \
     init.mt6785.usb.rc \
     init.nfc_detect.rc \
     init.oplus.rc \
-    init.connectivity.common.rc \
-    init.connectivity.rc \
     init.modem.rc \
     init.project.rc \
     init.sensor_1_0.rc \
     init_connectivity.rc \
-    factory_init.connectivity.common.rc \
     factory_init.connectivity.rc \
     factory_init.project.rc \
-    factory_init.rc \
-    meta_init.connectivity.common.rc \
     meta_init.connectivity.rc \
     meta_init.modem.rc \
-    meta_init.project.rc \
     meta_init.rc \
-    multi_init.rc \
     fstab.mt6785 \
     ueventd.mtk.rc \
     ueventd.oplus.rc \
@@ -404,21 +381,22 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/init/init.recovery.mt6785.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mt6785.rc
 
+# RIL
+ENABLE_VENDOR_RIL_SERVICE := true
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     $(LOCAL_PATH)/aidl/touch \
+    bootable/deprecated-ota \
     hardware/google/interfaces \
     hardware/google/pixel \
+    hardware/mediatek/libaedv \
     hardware/mediatek/libmtkperf_client \
     hardware/mediatek/wlan/wifi_hal \
     hardware/mediatek \
     hardware/oplus \
     hardware/dolby
-
-# Properties
-include $(LOCAL_PATH)/configs/props/vendor_prop.mk
-PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # Thermal
 PRODUCT_PACKAGES += \
@@ -433,14 +411,16 @@ PRODUCT_PACKAGES += \
     android.hardware.usb-service.mediatek \
     android.hardware.usb.gadget-service.mediatek
 
+# userdata
+PRODUCT_FS_COMPRESSION := 1
+
 # VNDK
 PRODUCT_PACKAGES += \
     libutils-v32 \
     libbinder-v32 \
-    libtinyalsa-v32 \
     libhidlbase-v32 \
-    libtinyxml2-v34 \
-    libui-v34
+    libtinyalsa-v32 \
+    libtinyxml2-v34
 
 # Vibrator
 $(call soong_config_set_bool,mediatek_vibrator,supports_effects,true)
@@ -448,10 +428,8 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator-service.mediatek
 
 # Wi-Fi
-$(call soong_config_set,wpa_supplicant_8,board_wlan_mediatek_stability,true)
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
-    libkeystore-engine-wifi-hidl \
     libwifi-hal-wrapper:64  \
     wpa_supplicant \
     hostapd

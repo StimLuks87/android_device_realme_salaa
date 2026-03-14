@@ -3,6 +3,7 @@ type oplus_charger_device, dev_type, fs_type;
 
 # Sensors
 type virtual_sensor_device, dev_type;
+type vendor_nanohub_device, dev_type;
 
 # Reserve
 type oplus_block_device, dev_type;

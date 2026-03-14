@@ -35,11 +35,15 @@ void set_variant_props(const variant_info_t& variant) {
     set_ro_build_prop("model", variant.model, true);
     set_ro_build_prop("name", variant.model, true);
     set_ro_build_prop("product", variant.model, false);
-    set_ro_build_prop("marketname", variant.marketname, true);
 
-    property_override("vendor.usb.product_string", variant.marketname, true);
+    property_override("ro.vendor.device", variant.device, true);
+    property_override("ro.product.device", variant.device, true);
+    property_override("ro.evolution.device", variant.device, true);
+    property_override("ro.lineage.device", variant.device, true);
+    property_override("ro.product.marketname", variant.marketname, true);
     property_override("ro.oplus.market.name", variant.marketname, true);
     property_override("ro.vendor.oplus.market.name", variant.marketname, true);
+    property_override("vendor.usb.product_string", variant.marketname, true);
 
     if (access("/system/bin/recovery", F_OK) != 0) {
         property_override("bluetooth.device.default_name", variant.marketname, true);

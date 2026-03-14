@@ -1,4 +1,5 @@
 vendor_public_prop(vendor_media_prop)
+vendor_public_prop(vendor_audio_prop)
 vendor_public_prop(vendor_oplus_touch_prop)
 vendor_public_prop(vendor_oplus_camera_prop)
 vendor_public_prop(vendor_audio_tuning_prop)

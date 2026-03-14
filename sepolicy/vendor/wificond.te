@@ -1,1 +1,1 @@
-allow wificond same_process_hal_file:file { read open map getattr execute };
+allow wificond same_process_hal_file:file { read open getattr };

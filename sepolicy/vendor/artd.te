@@ -1,5 +1,2 @@
+allow artd app_data_file:lnk_file read;
 allow artd app_data_file:dir search;
-allow artd app_data_file:lnk_file r_file_perms;
-allow artd system_data_file:dir search;
-allow artd privapp_data_file:dir search;
-allow artd resourcecache_data_file:dir search;

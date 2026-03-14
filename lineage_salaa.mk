@@ -18,16 +18,19 @@ $(call inherit-product, device/realme/salaa/device.mk)
 # Evo-X flags
 BUILD_BCR := true
 EVO_BUILD_TYPE := Unofficial
+TARGET_ENABLE_BLUR := true
+TARGET_SUPPORTS_64_BIT_APPS := true
 TARGET_SUPPORTS_QUICK_TAP := true
-TARGET_INCLUDE_ACCORD := true
+TARGET_INCLUDE_STOCK_ARCORE := true
+TARGET_INCLUDE_LIVE_WALLPAPERS := true
 
-# Gapps
+# GMS
 WITH_GMS := true
-TARGET_USES_MINI_GAPPS := true
+TARGET_USES_MINI_GAPPS := true 
 
 # Boot animation
-TARGET_INCLUDE_BOOT_ANIMATIONS := true
 TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_INCLUDE_BOOT_ANIMATIONS := true
 
 # Device Information
 PRODUCT_NAME := lineage_salaa
@@ -38,6 +41,11 @@ PRODUCT_MODEL := RMX2151/RMX2155/RMX2156
 
 PRODUCT_GMS_CLIENTID_BASE := android-realme
 
+PRODUCT_SYSTEM_NAME := RMX2155
+PRODUCT_SYSTEM_DEVICE := RMX2155L1
+
 PRODUCT_BUILD_PROP_OVERRIDES += \
-BuildDesc="sys_mssi_64_cn_armv82-user 12 SP1A.210812.016 1711679158901 release-keys" \
-BuildFingerprint=realme/RMX2156/RMX2156L1:12/SP1A.210812.016/Q.11e8c10-4e353:user/release-keys
+    BuildDesc="sys_mssi_64_cn_armv82-user 12 SP1A.210812.016 1711679158901 release-keys" \
+    SystemName=$(PRODUCT_SYSTEM_NAME) \
+    DeviceName=$(PRODUCT_SYSTEM_DEVICE) \
+    DeviceProduct=$(PRODUCT_SYSTEM_NAME)

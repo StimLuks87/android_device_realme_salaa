@@ -1,5 +1,1 @@
 typeattribute dex2oat mlstrustedsubject;
-dontaudit dex2oat privapp_data_file:dir r_dir_perms;
-allow dex2oat system_data_file:dir search;
-allow dex2oat resourcecache_data_file:dir search;
-allow dex2oat dalvikcache_data_file:file rw_file_perms;

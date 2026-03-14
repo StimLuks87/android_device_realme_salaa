@@ -1,4 +1,4 @@
-allow charger_vendor vendor_sysfs_graphics:file rw_file_perms;
+# Allow charger_vendor to access relevant sysfs nodes
 r_dir_file(charger_vendor, vendor_sysfs_battery_supply)
 r_dir_file(charger_vendor, vendor_sysfs_usb_supply)
 r_dir_file(charger_vendor, vendor_sysfs_ac_supply)

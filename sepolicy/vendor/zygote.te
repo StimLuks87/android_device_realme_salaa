@@ -1,1 +1,3 @@
+allow zygote self:fd use;
 allow zygote self:capability sys_nice;
+allow zygote proc:lnk_file read;

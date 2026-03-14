@@ -1,24 +1,28 @@
 typeattribute hal_sensors_default socket_between_core_and_vendor_violators;
 
-allow hal_sensors_default als_ps_device:chr_file r_file_perms;
-allow hal_sensors_default block_device:dir search;
-allow hal_sensors_default nanohub_device:dir r_dir_perms;
-allow hal_sensors_default nanohub_device:chr_file rw_file_perms;
-allow hal_sensors_default vendor_sysfs_oplus_virtual_sensor:dir search;
-allow hal_sensors_default vendor_sysfs_oplus_virtual_sensor:file rw_file_perms;
+r_dir_file(hal_sensors_default, vendor_proc_oplus_sensor_feature)
+r_dir_file(hal_sensors_default, vendor_sysfs_oplus_virtual_sensor)
+
+allow hal_sensors_default vendor_sysfs_oplus_virtual_sensor:file w_file_perms;
+
 allow hal_sensors_default vendor_proc_oplus_sensor_param:file r_file_perms;
-allow hal_sensors_default vendor_proc_oplus_sensor_feature:dir search;
-allow hal_sensors_default vendor_proc_oplus_sensor_feature:file r_file_perms;
-allow hal_sensors_default persist_data_file:dir search;
-allow hal_sensors_default persist_data_file:file r_file_perms;
-allow hal_sensors_default virtual_sensor_device:chr_file rw_file_perms;
-allow hal_sensors_default mnt_vendor_file:dir search;
+allow hal_sensors_default virtual_sensor_device:chr_file r_file_perms;
+allow hal_sensors_default vendor_proc_oplus_sensor_als:file w_file_perms;
+allow hal_sensors_default vendor_nanohub_device:chr_file w_file_perms;
+allow hal_sensors_default als_ps_device:chr_file r_file_perms;
+
+r_dir_file(hal_sensors_default, vendor_proc_oplus_als_file)
+r_dir_file(hal_sensors_default, vendor_proc_oplus_sensor_als)
+r_dir_file(hal_sensors_default, vendor_proc_oplus_version)
+r_dir_file(hal_sensors_default, vendor_nanohub_device)
+
 allow hal_sensors_default oplus_block_device:blk_file r_file_perms;
-allow hal_sensors_default device:dir r_dir_perms;
-allow hal_sensors_default hidraw_device:chr_file rw_file_perms;
-allow hal_sensors_default hal_system_suspend_service:service_manager find;
-rw_dir_file(hal_sensors_default, vendor_sysfs_graphics)
+allow hal_sensors_default block_device:dir search;
+allow hal_sensors_default persist_data_file:dir search;
+
 r_dir_file(hal_sensors_default, sysfs_leds)
+rw_dir_file(hal_sensors_default, vendor_sysfs_graphics)
+rw_dir_file(hal_sensors_default, vendor_persist_engineer_file)
 
 get_prop(hal_sensors_default, system_oplus_sensors_prop)
 get_prop(hal_sensors_default, vendor_oplus_camera_prop)

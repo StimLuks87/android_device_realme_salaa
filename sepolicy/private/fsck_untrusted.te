@@ -1,2 +1,0 @@
-allow fsck sysfs_devices_block:dir search;
-allow fsck sysfs_devices_block:file r_file_perms;

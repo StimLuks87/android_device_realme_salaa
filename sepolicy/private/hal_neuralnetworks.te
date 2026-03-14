@@ -1,1 +1,0 @@
-allow hal_neuralnetworks hal_allocator_default:binder call;

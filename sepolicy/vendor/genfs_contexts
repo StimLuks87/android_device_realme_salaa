@@ -18,27 +18,22 @@ genfscon proc /devinfo/fastchg                                                  
 genfscon proc /ui_soc_decimal                                                                                            u:object_r:vendor_proc_oplus_fastchg:s0
 genfscon proc /batt_param_noplug                                                                                         u:object_r:vendor_proc_batt_param:s0
 genfscon proc /tbatt_pwroff                                                                                              u:object_r:vendor_proc_tbatt_pwroff:s0
-genfscon proc /wireless                                                                                                  u:object_r:vendor_proc_wireless:s0
 
-# Touch
+# Display
 genfscon proc /touchpanel                                                                                                u:object_r:vendor_proc_display:s0
 genfscon proc /devinfo/lcd                                                                                               u:object_r:vendor_proc_display:s0
 genfscon proc /devinfo/tp                                                                                                u:object_r:vendor_proc_display:s0
+genfscon sysfs /kernel/oplus_display                                                                                     u:object_r:vendor_sysfs_graphics:s0
 
 # Fingerprint
 genfscon proc /fp_id                                                                                                     u:object_r:vendor_proc_fingerprint:s0
 genfscon proc /fp_kernel_event                                                                                           u:object_r:vendor_proc_fingerprint:s0
 genfscon sysfs /devices/platform/fpc_interrupt                                                                           u:object_r:vendor_sysfs_fingerprint:s0
 
-# Graphics
-genfscon sysfs /kernel/oplus_display                                                                                     u:object_r:vendor_sysfs_graphics:s0
-
 # GPU
-genfscon sysfs /kernel/gpu/gpu_min_clock                                                                                 u:object_r:vendor_sysfs_gpu:s0
-genfscon sysfs /kernel/gpu/gpu_max_clock                                                                                 u:object_r:vendor_sysfs_gpu:s0
-genfscon sysfs /devices/platform/13040000.mali/js_ctx_scheduling_mode                                                    u:object_r:vendor_sysfs_gpu:s0
-genfscon sysfs /devices/platform/13040000.mali/js_scheduling_period                                                      u:object_r:vendor_sysfs_gpu:s0
-genfscon sysfs /devices/platform/13040000.mali/dvfs_period                                                               u:object_r:vendor_sysfs_gpu:s0
+genfscon sysfs /kernel/gpu/gpu_min_clock                                                                                 u:object_r:sysfs_gpu:s0
+genfscon sysfs /kernel/gpu/gpu_max_clock                                                                                 u:object_r:sysfs_gpu:s0
+genfscon sysfs /devices/platform/13040000.mali                                                                           u:object_r:sysfs_gpu:s0
 
 # NFC
 genfscon proc /oplus_nfc/chipset                                                                                         u:object_r:vendor_proc_nfc_chipset:s0
@@ -47,12 +42,17 @@ genfscon proc /oplus_nfc/chipset                                                
 genfscon sysfs /devices/virtual/oplus_chg/usb/otg_switch                                                                 u:object_r:vendor_sysfs_otg_switch:s0
 
 # Sensors
+genfscon proc /oplusAls                                                                                                  u:object_r:vendor_proc_oplus_sensor_als:s0
+genfscon proc /sensor/als_cali                                                                                           u:object_r:vendor_proc_oplus_als_file:s0
 genfscon proc /oplusSensorFeature                                                                                        u:object_r:vendor_proc_oplus_sensor_feature:s0
 genfscon proc /oplusCustom/Sensor                                                                                        u:object_r:vendor_proc_oplus_sensor_feature:s0
 genfscon proc /mag_soft_parameter.json                                                                                   u:object_r:vendor_proc_oplus_sensor_param:s0
-genfscon proc /sensor/als_cali                                                                                           u:object_r:vendor_proc_oplus_als_file:s0
 genfscon sysfs /devices/virtual/oplus_sensor                                                                             u:object_r:vendor_sysfs_oplus_virtual_sensor:s0
 genfscon sysfs /class/oplus_sensor                                                                                       u:object_r:vendor_sysfs_oplus_virtual_sensor:s0
+
+# Memory
+genfscon proc /sys/vm/lowmem_reserve_ratio                                                                               u:object_r:proc_watermark_boost_factor:s0
+genfscon proc /sys/vm/min_free_kbytes                                                                                    u:object_r:proc_watermark_boost_factor:s0
 
 # Oplus
 genfscon proc /oplusVersion                                                                                              u:object_r:vendor_proc_oplus_version:s0
@@ -93,6 +93,7 @@ genfscon sysfs /devices/platform/11013000.spi3/spi_master/spi3/spi3.0/wakeup/wak
 genfscon sysfs /devices/platform/charger/power_supply/usb/wakeup26                                                       u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/charger/power_supply/usb/wakeup27                                                       u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/mt_charger/power_supply/charger/wakeup2                                                 u:object_r:sysfs_wakeup:s0
+genfscon sysfs /devices/platform/1000d000.pwrap/1000d000.pwrap:mt6359-pmic/mt6359-rtc/wakeup/wakeup10                    u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/1000d000.pwrap/1000d000.pwrap:mt6359-pmic/mt6359-rtc/wakeup/wakeup11                    u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/1000d000.pwrap/1000d000.pwrap:mt6359-pmic/mt6359-rtc/power/wakeup                       u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/1000d000.pwrap/1000d000.pwrap:mt6359-pmic/mt6359-rtc/power/wakeup_count                 u:object_r:sysfs_wakeup:s0

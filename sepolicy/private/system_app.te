@@ -6,5 +6,6 @@ dontaudit system_app {
 
 binder_call(system_app, system_suspend)
 binder_call(system_app, storaged)
+binder_call(system_app, gpuservice)
 
 allow system_app proc_filesystems:file r_file_perms;

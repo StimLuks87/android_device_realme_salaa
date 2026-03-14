@@ -9,11 +9,7 @@ persist.bluetooth.enable_power_stats             u:object_r:exported_bluetooth_p
 persist.sys.bt.a2dp.pendingtime                  u:object_r:exported_system_prop:s0
 
 # Camera
-NA                                               u:object_r:exported_system_prop:s0
-demo.hole                                        u:object_r:exported_system_prop:s0
-demo.near                                        u:object_r:exported_system_prop:s0
-demo.far                                         u:object_r:exported_system_prop:s0
-demo.fb                                          u:object_r:exported_system_prop:s0
+demo.                                            u:object_r:exported_system_prop:s0
 oplus.switch.                                    u:object_r:exported_system_prop:s0
 oplus.CTP.Tunningmode                            u:object_r:exported_system_prop:s0
 persist.sys.camera.lao.enable                    u:object_r:exported_system_prop:s0
@@ -29,33 +25,30 @@ ro.oplus.system.camera.                          u:object_r:system_oplus_camera_
 oplus.camera.                                    u:object_r:system_oplus_camera_prop:s0
 oppo.camera.                                     u:object_r:system_oplus_camera_prop:s0
 
-# Sensors
-persist.sys.oppo.fusionlight                     u:object_r:system_oplus_sensors_prop:s0
-persist.sys.oppo.proximity                       u:object_r:system_oplus_sensors_prop:s0
-ro.vendor.oplus.sensor.                          u:object_r:system_oplus_sensors_prop:s0
-ro.vendor.oplus.aal.                             u:object_r:system_oplus_sensors_prop:s0
+# Display
+persist.oplus.display.vrr.adfr                   u:object_r:exported_system_prop:s0
+ro.oplus.backlight.threhold                      u:object_r:exported_system_prop:s0
+ro.oplus.bl.disable.dre.enable                   u:object_r:exported_system_prop:s0
+ro.oplus.display.                                u:object_r:exported_system_prop:s0
+ro.oplus.silky.brightness.delay                  u:object_r:exported_system_prop:s0
+
+# Fingerprint
+gf.debug.                                        u:object_r:system_oplus_fingerprint_prop:s0
+oplus.fingerprint.                               u:object_r:system_oplus_fingerprint_prop:s0
+oplus.goodix.fp                                  u:object_r:system_oplus_fingerprint_prop:s0
+oplus.optical.                                   u:object_r:system_oplus_fingerprint_prop:s0
 
 # Fs-verity
 pm.dexopt.dm.require_fsverity   		 u:object_r:exported_pm_prop:s0
 pm.dexopt.dm.require_manifest   		 u:object_r:exported_pm_prop:s0
 
-# Mtk Camera
-ro.mtk_cam.mfb.ultimate                          u:object_r:system_mtk_camera_prop:s0
-ro.mtk_cam_dualzoom_support                      u:object_r:system_mtk_camera_prop:s0
-ro.mtk_cam_stereo_camera_support                 u:object_r:system_mtk_camera_prop:s0
-
-# Oplus
-ro.oplus.market.name                             u:object_r:system_oplus_project_prop:s0
-ro.oplus.version.                                u:object_r:system_oplus_project_prop:s0
-ro.oplus.image.                                  u:object_r:system_oplus_project_prop:s0
-ro.separate.soft                                 u:object_r:system_oplus_project_prop:s0
-ro.product.hw                                    u:object_r:system_oplus_project_prop:s0
-
-# Fingerprint
-oplus.fingerprint.                               u:object_r:system_oplus_fingerprint_prop:s0
-oplus.optical.                                   u:object_r:system_oplus_fingerprint_prop:s0
-oplus.goodix.fp                                  u:object_r:system_oplus_fingerprint_prop:s0
-gf.debug.                                        u:object_r:system_oplus_fingerprint_prop:s0
+# Hardware
+ro.build.release_type                            u:object_r:exported_default_prop:s0 exact string
+ro.chipname                                      u:object_r:exported_default_prop:s0 exact string
+ro.mediatek.platform                             u:object_r:exported_default_prop:s0 exact string
+ro.version.confidential                          u:object_r:exported_default_prop:s0 exact string
+ro.hardware.soc.manufacturer                     u:object_r:exported_default_prop:s0 exact string
+ro.hardware.chipname                             u:object_r:exported_default_prop:s0 exact string
 
 # Logging
 persist.sys.assert.panic                         u:object_r:exported_system_prop:s0
@@ -65,33 +58,42 @@ persist.service.debuggable                       u:object_r:exported_system_prop
 ro.oplus.operator                                u:object_r:exported_system_prop:s0
 persist.oplus.network.                           u:object_r:exported_system_prop:s0
 persist.sys.gps.lpp                              u:object_r:exported_system_prop:s0
-ro.debuggable                                    u:object_r:userdebug_or_eng_prop:s0
+ro.oplus.mtk_gps_L1L5                            u:object_r:exported_system_prop:s0
+ro.oplus.mtk_gps_mpe                             u:object_r:exported_system_prop:s0
+ro.telephony.sim.count                           u:object_r:telephony_config_prop:s0 exact int
 
-# Hardware
-ro.build.release_type                            u:object_r:exported_default_prop:s0
-ro.version.confidential                          u:object_r:exported_default_prop:s0
-ro.mediatek.platform                             u:object_r:exported_default_prop:s0 exact string
-ro.hardware.chipname                             u:object_r:exported_default_prop:s0 exact string
-ro.chipname                                      u:object_r:exported_default_prop:s0 exact string
-ro.product.marketname                            u:object_r:exported_default_prop:s0
+# Mtk Camera
+ro.mtk_cam.mfb.ultimate                          u:object_r:system_mtk_camera_prop:s0
+ro.mtk_cam_dualzoom_support                      u:object_r:system_mtk_camera_prop:s0
+ro.mtk_cam_stereo_camera_support                 u:object_r:system_mtk_camera_prop:s0
 
-# Motorola Dolby
-ro.vendor.audio.moto_sst_supported               u:object_r:exported_default_prop:s0
-ro.vendor.dolby.no_custom_profile                u:object_r:exported_default_prop:s0
-ro.hardware.soc.manufacturer                     u:object_r:exported_default_prop:s0
-persist.vendor.audio.dolby.tws_tuning            u:object_r:exported_default_prop:s0
-
-# Vendor aware available
-ro.vendor.aware_available                        u:object_r:exported_default_prop:s0
-
-# MNLD
-ro.oplus.mtk_gps_L1L5                            u:object_r:system_mtk_mnld_prop:s0
-
-# Fastbootd
-ro.fastbootd.availale			         u:object_r:exported_system_prop:s0
+# Oplus Project
+ro.oplus.image.                                  u:object_r:system_oplus_project_prop:s0
+ro.oplus.market.name                             u:object_r:system_oplus_project_prop:s0
+ro.oplus.version.                                u:object_r:system_oplus_project_prop:s0
+ro.product.hw                                    u:object_r:system_oplus_project_prop:s0
+ro.separate.soft                                 u:object_r:system_oplus_project_prop:s0
+ro.product.marketname                            u:object_r:build_prop:s0
+ro.evolution.device                              u:object_r:build_prop:s0
+ro.lineage.device                                u:object_r:build_prop:s0
 
 # Realme Parts
 persist.cabc_profile                             u:object_r:system_cabc_prop:s0
 
+# Sensors
+persist.sys.oppo.fusionlight                     u:object_r:system_oplus_sensors_prop:s0
+persist.sys.oppo.proximity                       u:object_r:system_oplus_sensors_prop:s0
+ro.vendor.oplus.sensor.                          u:object_r:system_oplus_sensors_prop:s0
+ro.vendor.oplus.aal.                             u:object_r:system_oplus_sensors_prop:s0
+
+# Touch
+persist.sys.tpic.                                u:object_r:system_oplus_touch_prop:s0
+
 # UI specific
 ro.build.expect.vendor                           u:object_r:exported_default_prop:s0
+
+# Vendor aware available
+ro.vendor.aware_available                        u:object_r:exported_default_prop:s0
+
+# Zygote
+ro.zygote.preload.enable                         u:object_r:zygote_config_prop:s0 exact bool
