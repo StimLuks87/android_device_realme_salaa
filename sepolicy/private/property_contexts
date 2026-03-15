@@ -55,9 +55,10 @@ persist.sys.assert.panic                         u:object_r:exported_system_prop
 persist.service.debuggable                       u:object_r:exported_system_prop:s0
 
 # Modem GPS
-ro.oplus.operator                                u:object_r:exported_system_prop:s0
+persist.vendor.oplus.radio.                      u:object_r:exported_system_prop:s0
 persist.oplus.network.                           u:object_r:exported_system_prop:s0
 persist.sys.gps.lpp                              u:object_r:exported_system_prop:s0
+ro.oplus.operator                                u:object_r:exported_system_prop:s0
 ro.oplus.mtk_gps_L1L5                            u:object_r:exported_system_prop:s0
 ro.oplus.mtk_gps_mpe                             u:object_r:exported_system_prop:s0
 ro.telephony.sim.count                           u:object_r:telephony_config_prop:s0 exact int
@@ -81,10 +82,8 @@ ro.lineage.device                                u:object_r:build_prop:s0
 persist.cabc_profile                             u:object_r:system_cabc_prop:s0
 
 # Sensors
-persist.sys.oppo.fusionlight                     u:object_r:system_oplus_sensors_prop:s0
-persist.sys.oppo.proximity                       u:object_r:system_oplus_sensors_prop:s0
-ro.vendor.oplus.sensor.                          u:object_r:system_oplus_sensors_prop:s0
-ro.vendor.oplus.aal.                             u:object_r:system_oplus_sensors_prop:s0
+persist.sys.oppo.fusionlight                     u:object_r:system_oplus_sensor_prop:s0
+persist.sys.oppo.proximity                       u:object_r:system_oplus_sensor_prop:s0
 
 # Touch
 persist.sys.tpic.                                u:object_r:system_oplus_touch_prop:s0

@@ -19,8 +19,13 @@ ro.camera.ignore.input.stream.check.enable=1
 ro.camera.portrait.blur.level.enable=1
 ro.camera.sound.forced=0
 ro.camera.temperature.limit=440
+ro.camera.notify_nfc=1
 ro.camera.videoeis.enable=
 ro.mtk_cam.mfb.ultimate=1
+
+# Sensor
+persist.sys.oppo.fusionlight=true
+persist.sys.oppo.proximity=true
 
 # HWUI
 ro.hwui.disable_sc=false

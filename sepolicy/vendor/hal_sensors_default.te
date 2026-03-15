@@ -24,7 +24,5 @@ r_dir_file(hal_sensors_default, sysfs_leds)
 rw_dir_file(hal_sensors_default, vendor_sysfs_graphics)
 rw_dir_file(hal_sensors_default, vendor_persist_engineer_file)
 
-get_prop(hal_sensors_default, system_oplus_sensors_prop)
-get_prop(hal_sensors_default, vendor_oplus_camera_prop)
 get_prop(hal_sensors_default, vendor_dynamic_sensor_prop)
 get_prop(hal_sensors_default, vendor_default_prop)

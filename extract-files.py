@@ -136,7 +136,7 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('liblog.so'),
     ('vendor/lib/libnvram.so', 'vendor/lib/libsysenv.so', 'vendor/lib64/libnvram.so', 'vendor/lib64/libsysenv.so', 'vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-mtk-neuron', 'odm/bin/hw/vendor.oplus.hardware.charger@1.0-service'): blob_fixup()
         .add_needed('libbase_shim.so'),
-    'vendor/lib64/hw/hwcomposer.mt6785.so' : blob_fixup()
+    'vendor/lib64/hw/hwcomposer.mt6785.so': blob_fixup()
          .add_needed('libprocessgroup_shim.so'),
 
     # Fix SONAMEs

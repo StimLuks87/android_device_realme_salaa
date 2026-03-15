@@ -3,14 +3,14 @@ dontaudit init system_file:file relabelfrom;
 
 allow init oplus_block_device:blk_file relabelto;
 allow init oplus_block_device:lnk_file relabelto;
-allow init vendor_persist_engineer_file:filesystem { relabelto relabelfrom };
 allow init oplus_reserve_file:filesystem { relabelto relabelfrom };
 allow init hal_dms_default:process { siginh rlimitinh transition };
 allow init hal_fingerprint_default:process ptrace;
-allow init proc_sched_migration_cost_ns:file rw_file_perms;
-allow init socket_device:sock_file create_file_perms;
 allow init vendor_file:file { execute mounton };
 allow init vendor_proc_oplus_version:file r_file_perms;
+allow init vendor_persist_engineer_file:filesystem { relabelto relabelfrom };
 allow init lk_block_device:lnk_file relabelto;
-allow init same_process_hal_file:file execute;
+allow init same_process_hal_file:file { getattr map open read };
+allow init socket_device:sock_file create_file_perms;
+allow init proc_sched_migration_cost_ns:file rw_file_perms;
 get_prop(init, vendor_variant_prop)

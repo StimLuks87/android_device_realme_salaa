@@ -358,15 +358,22 @@ PRODUCT_PACKAGES += \
     init.mt6785.usb.rc \
     init.nfc_detect.rc \
     init.oplus.rc \
+    init.connectivity.common.rc \
+    init.connectivity.rc \
     init.modem.rc \
     init.project.rc \
     init.sensor_1_0.rc \
     init_connectivity.rc \
+    factory_init.connectivity.common.rc \
     factory_init.connectivity.rc \
     factory_init.project.rc \
+    factory_init.rc \
+    meta_init.connectivity.common.rc \
     meta_init.connectivity.rc \
     meta_init.modem.rc \
+    meta_init.project.rc \
     meta_init.rc \
+    multi_init.rc \
     fstab.mt6785 \
     ueventd.mtk.rc \
     ueventd.oplus.rc \
