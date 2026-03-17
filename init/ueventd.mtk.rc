@@ -136,7 +136,6 @@
 
 # Graphics
 /dev/graphics/fb0         0666   system     graphics
-/dev/dri/card0            0666   system     graphics
 /dev/mtk_disp_mgr         0660   system     graphics
 /dev/mtk_disp             0660   system     graphics
 /dev/sw_sync              0660   system     graphics

@@ -1,6 +1,8 @@
 # Audio
 aaudio.mmap_exclusive_policy=2
 aaudio.mmap_policy=2
+ro.audio.silent=0
+ro.audio.usb.period_us=16000
 
 # BPF
 ro.bpf.kver_override=5.10.247
@@ -30,7 +32,13 @@ bluetooth.profile.sap.server.enabled?=true
 bluetooth.profile.vcp.controller.enabled?=true
 persist.bluetooth.enable_power_stats=false
 persist.bluetooth.a2dp_aac_abr.enable=true
-persist.sys.bt.a2dp.pendingtime=4500
+persist.bluetooth.a2dp_offload.cap=sbc-aac
+persist.bluetooth.a2dp_offload.disabled=true
+ro.bluetooth.a2dp_offload.supported=true
+
+# Camera
+ro.camera.notify_nfc=1
+ro.camera.sound.forced=0
 
 # Incremental
 ro.incremental.enable=yes
@@ -45,8 +53,6 @@ ro.lmk.thrashing_limit=30
 ro.lmk.thrashing_limit_decay=2
 
 # RKPD
-remote_provisioning.connect_timeout_millis=2000
-remote_provisioning.enable_rkpd=true
 remote_provisioning.hostname=remoteprovisioning.googleapis.com
 
 # RIL

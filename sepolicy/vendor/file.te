@@ -18,6 +18,9 @@ type vendor_proc_oplus_fastchg, fs_type, proc_type;
 type vendor_firmware_file, file_type, vendor_file_type;
 type sysfs_chargelevel, fs_type, sysfs_type;
 
+# Data files
+type per_boot_file, file_type, data_file_type, core_data_file_type;
+
 # Display
 type vendor_sysfs_graphics, fs_type, sysfs_type;
 type vendor_proc_display, fs_type, proc_type;
@@ -35,6 +38,7 @@ type vendor_proc_oplus_sensor_feature, fs_type, proc_type;
 type vendor_proc_oplus_sensor_param, fs_type, proc_type;
 type vendor_proc_oplus_als_file, fs_type, proc_type;
 type vendor_proc_oplus_sensor_als, fs_type, proc_type;
+type persist_engineer_file, file_type;
 
 # Oplus Version
 type vendor_proc_oplus_version, fs_type, proc_type;
@@ -42,7 +46,8 @@ type vendor_proc_oplus_version, fs_type, proc_type;
 # Performance
 type proc_sched_stune, fs_type, proc_type;
 type proc_sched_assist, fs_type, proc_type;
-type vendor_sysfs_cpufreq, fs_type, sysfs_type;
+type sysfs_mtk_cpufreq, fs_type, sysfs_type;
+type sysfs_mtk_gpufreq, fs_type, sysfs_type;
 
 # GPUFREQ
 type proc_gpufreq, fs_type, proc_type;

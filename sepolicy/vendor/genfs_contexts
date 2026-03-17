@@ -31,8 +31,6 @@ genfscon proc /fp_kernel_event                                                  
 genfscon sysfs /devices/platform/fpc_interrupt                                                                           u:object_r:vendor_sysfs_fingerprint:s0
 
 # GPU
-genfscon sysfs /kernel/gpu/gpu_min_clock                                                                                 u:object_r:sysfs_gpu:s0
-genfscon sysfs /kernel/gpu/gpu_max_clock                                                                                 u:object_r:sysfs_gpu:s0
 genfscon sysfs /devices/platform/13040000.mali                                                                           u:object_r:sysfs_gpu:s0
 
 # NFC
@@ -62,10 +60,8 @@ genfscon proc /gpufreq                                                          
 genfscon proc /sys/kernel/sched_stune_task_threshold                                                                     u:object_r:proc_sched_stune:s0 
 genfscon proc /sys/kernel/sched_assist_enabled                                                                           u:object_r:proc_sched_assist:s0
 genfscon proc /sys/kernel/sched_assist_scene                                                                             u:object_r:proc_sched_assist:s0
-genfscon sysfs /devices/system/cpu/cpufreq/policy6/scaling_max_freq                                                      u:object_r:vendor_sysfs_cpufreq:s0
-genfscon sysfs /devices/system/cpu/cpufreq/policy6/scaling_min_freq                                                      u:object_r:vendor_sysfs_cpufreq:s0
-genfscon sysfs /devices/system/cpu/cpufreq/policy0/scaling_max_freq                                                      u:object_r:vendor_sysfs_cpufreq:s0
-genfscon sysfs /devices/system/cpu/cpufreq/policy0/scaling_min_freq                                                      u:object_r:vendor_sysfs_cpufreq:s0
+genfscon sysfs /devices/system/cpu/cpufreq/mtk/.cluster_(min|max)_freq                                                   u:object_r:sysfs_mtk_cpufreq:s0
+genfscon sysfs /kernel/gpu/gpu_(min|max)_clock                                                                           u:object_r:sysfs_mtk_gpufreq:s0
 
 # Wakeup
 genfscon sysfs /devices/platform/charger/power_supply/usb/wakeup28                                                       u:object_r:sysfs_wakeup:s0

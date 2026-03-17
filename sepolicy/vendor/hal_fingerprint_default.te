@@ -39,5 +39,6 @@ r_dir_file(hal_fingerprint_default, vendor_sysfs_battery_supply)
 r_dir_file(hal_fingerprint_default, sysfs_batteryinfo)
 
 get_prop(hal_fingerprint_default, vendor_oplus_prop)
+get_prop(hal_fingerprint_default, system_oplus_project_prop)
 set_prop(hal_fingerprint_default, vendor_oplus_fingerprint_prop)
 set_prop(hal_fingerprint_default, system_oplus_fingerprint_prop)

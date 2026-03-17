@@ -63,11 +63,6 @@ ro.oplus.mtk_gps_L1L5                            u:object_r:exported_system_prop
 ro.oplus.mtk_gps_mpe                             u:object_r:exported_system_prop:s0
 ro.telephony.sim.count                           u:object_r:telephony_config_prop:s0 exact int
 
-# Mtk Camera
-ro.mtk_cam.mfb.ultimate                          u:object_r:system_mtk_camera_prop:s0
-ro.mtk_cam_dualzoom_support                      u:object_r:system_mtk_camera_prop:s0
-ro.mtk_cam_stereo_camera_support                 u:object_r:system_mtk_camera_prop:s0
-
 # Oplus Project
 ro.oplus.image.                                  u:object_r:system_oplus_project_prop:s0
 ro.oplus.market.name                             u:object_r:system_oplus_project_prop:s0

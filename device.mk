@@ -81,7 +81,7 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, hardware/dolby/dolby.mk)
 
 # ViperFX
-$(call inherit-product, packages/apps/ViperFX/config.mk)
+$(call inherit-product, packages/apps/Viper4android/config.mk)
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -114,7 +114,7 @@ PRODUCT_PACKAGES += \
 # Graphics
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.2-service \
-    android.hardware.memtrack-service.mediatek-mali
+    android.hardware.memtrack-service.mediatek
 
 # Display saturation adjust
 PRODUCT_VENDOR_PROPERTIES += \
@@ -175,8 +175,8 @@ PRODUCT_PACKAGES += \
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health-service.example \
-    android.hardware.health-service.example_recovery \
+    android.hardware.health-service.mediatek \
+    android.hardware.health-service.mediatek-recovery \
     android.hardware.health@2.1.vendor \
     charger_res_images_vendor
 
@@ -328,9 +328,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.pixel-libperfmgr
-
-PRODUCT_PACKAGES += \
+    android.hardware.power-service.lineage-libperfmgr \
     vendor.mediatek.hardware.mtkpower@1.2-service.stub
 
 # Power | Dummy mtkperf lib
@@ -398,6 +396,7 @@ PRODUCT_SOONG_NAMESPACES += \
     bootable/deprecated-ota \
     hardware/google/interfaces \
     hardware/google/pixel \
+    hardware/lineage/interfaces/power-libperfmgr \
     hardware/mediatek/libaedv \
     hardware/mediatek/libmtkperf_client \
     hardware/mediatek/wlan/wifi_hal \

@@ -25,13 +25,13 @@
         <!--DOLBY DAP-->
         <library name="dap" path="libswdap.so"/>
         <library name="dvl" path="libdlbvol.so"/>
-        <!--DOLBY END-->
+        <!--DOLBY DAP END-->
         <!--DOLBY GAME-->
         <library name="gamedap" path="libswgamedap.so"/>
-        <!--DOLBY END-->
+        <!--DOLBY GAME END-->
         <!--DOLBY VQE-->
         <library name="vqe" path="libswvqe.so"/>
-        <!--DOLBY END-->
+        <!--DOLBY VQE END-->
         <!--Spatial Audio-->
         <library name="spatializer" path="libspatialaudio.so"/>
 	    <!--Spatial Audio--> 
@@ -86,13 +86,13 @@
         <effect name="dlb_system_listener" library="dvl" uuid="874db4d8-051d-4b7b-bd95-a3bebc837e9e"/>
         <effect name="dlb_notification_listener" library="dvl" uuid="1f0091e3-6ad8-40fe-9b09-5948f9a26e7e"/>
         <effect name="dlb_voice_call_listener" library="dvl" uuid="58d13383-b41d-05df-d94e-bb23db293260"/>
-        <!--DOLBY END-->
+        <!--DOLBY DAP END-->
         <!--DOLBY GAME-->
         <effect name="gamedap" library="gamedap" uuid="3783c334-d3a0-4d13-874f-0032e5fb80e2"/>
-        <!--DOLBY END-->
+        <!--DOLBY GAME END-->
         <!--DOLBY VQE-->
         <effect name="vqe" library="vqe" uuid="64a0f614-7fa4-48b8-b081-d59dc954616f"/>
-        <!--DOLBY END-->
+        <!--DOLBY VQE END-->
         <!--Spatial Audio-->
         <effect name="spatializer" library="spatializer" uuid="cc4677de-ff72-11eb-9a03-0242ac130003"/>
        	<!--Spatial Audio-->
@@ -100,27 +100,6 @@
         <effect name="v4a_standard_re" library="v4a_re" uuid="90380da3-8536-4744-a6a3-5731970e640f"/>
         <!--ViPER4AndroidFX-->
     </effects>
-    <postprocess>
-        <!-- <stream type="music">
-            <apply effect="music_helper"/>
-            <apply effect="dlb_music_listener"/>
-        </stream>
-        <stream type="ring">
-            <apply effect="ring_helper"/>
-            <apply effect="dlb_ring_listener"/>
-        </stream>
-        <stream type="alarm">
-            <apply effect="alarm_helper"/>
-            <apply effect="dlb_alarm_listener"/>
-        </stream>
-        <stream type="system">
-            <apply effect="dlb_system_listener"/>
-        </stream>
-        <stream type="notification">
-            <apply effect="notification_helper"/>
-            <apply effect="dlb_notification_listener"/>
-        </stream> -->
-    </postprocess>
 
     <!-- Audio pre processor configurations.
          The pre processor configuration is described in a "preprocess" element and consists in a
@@ -147,18 +126,39 @@
               "music", "ring", "alarm", "notification", "voice_call"
          Each "stream" element contains a list of "apply" elements indicating one effect to apply.
          The effect to apply is designated by its name in the "effects" elements.
-
+    -->
         <postprocess>
             <stream type="music">
-                <apply effect="music_post_proc"/>
+            </stream>
+            <stream type="ring">
+            </stream>
+            <stream type="alarm">
+            </stream>
+            <stream type="system">
             </stream>
             <stream type="voice_call">
-                <apply effect="voice_post_proc"/>
             </stream>
             <stream type="notification">
-                <apply effect="notification_post_proc"/>
+            </stream>
+            <stream type="bluetooth_sco">
+            </stream>
+            <stream type="dtmf">
+            </stream>
+            <stream type="enforced_audible">
+            </stream>
+            <stream type="accessibility">
+            </stream>
+            <stream type="tts">
+            </stream>
+            <stream type="assistant">
+            </stream>
+            <stream type="call_assistant">
+            </stream>
+            <stream type="patch">
+                <apply effect="gamedap"/>
+            </stream>
+            <stream type="rerouting">
+                <apply effect="gamedap"/>
             </stream>
         </postprocess>
-    -->
-
 </audio_effects_conf>

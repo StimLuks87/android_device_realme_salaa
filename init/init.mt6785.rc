@@ -82,12 +82,7 @@ on fs
     exec /system/bin/tune2fs -O has_journal -u 10010 -r 4096 /dev/block/by-name/userdata
     write /sys/kernel/tracing/trace_marker "E"
     write /proc/bootprof "INIT:Mount_END"
-    # zram
-    write /sys/block/zram0/comp_algorithm lz4
-    write /proc/sys/vm/page-cluster 0
-    write /proc/sys/vm/swappiness 60
-    write /sys/kernel/mm/swap/vma_ra_enabled false
-    swapon_all /vendor/etc/fstab.mt6785
+
     # Thermal
     mkdir /data/vendor/.tp/ 0775 system system
     mkdir /data/vendor/thermal 0771 root system
@@ -183,10 +178,6 @@ on post-fs-data
     chown root system /mnt/vendor/nvdata
     chmod 0771 /mnt/vendor/nvdata
     mkdir /mnt/vendor/nvdata/media 0771 media audio
-
-    # Create Audio HAL data directory
-    mkdir /data/vendor/audiohal 0771 audioserver audio
-    mkdir /data/vendor/audiohal/audio_param 0771 audioserver audio
 
     #Create cct mount point
     mkdir /mnt/vendor/cct
@@ -423,12 +414,6 @@ on post-fs-data
     chown root diag /sys/bus/platform/drivers/eint/current_eint
 
     # Display
-    chmod 0666 /dev/graphics/fb0
-    chown system graphics /dev/graphics/fb0
-
-    chmod 0666 /dev/dri/card0
-    chown system graphics /dev/dri/card0
-
     chmod 0660 /dev/mtk_disp_mgr
     chown system graphics /dev/mtk_disp_mgr
 
@@ -884,6 +869,14 @@ on boot
     write /sys/devices/virtual/oplus_chg/usb/otg_switch 1
     write /sys/class/power_supply/usb/otg_switch 1
 
+    # zram
+    write /sys/block/zram0/comp_algorithm lz4
+    write /proc/sys/vm/page-cluster 0
+    write /proc/sys/vm/swappiness 100
+    write /sys/kernel/mm/swap/vma_ra_enabled false
+
+    swapon_all /vendor/etc/fstab.mt6785
+
 # Disable AOSP RIL if MTK RIL is up
 on property:vendor.ril.mtk=1
     stop vendor.ril-daemon
@@ -914,9 +907,6 @@ on property:vold.decrypt=trigger_shutdown_framework
 # Stop bootprof
 on property:sys.boot_completed=1
     write /proc/bootprof "0"
-
-#bluetooth property parameters
-    setprop persist.bluetooth.a2dp_offload.disabled false
 
 # end boot time fs tune
 on property:sys.boot_completed=1

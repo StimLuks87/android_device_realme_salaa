@@ -5,6 +5,5 @@ allow gmscore_app dex2oat_exec:lnk_file getattr;
 allow gmscore_app linkerconfig_file:dir getattr;
 allow gmscore_app metadata_file:dir getattr;
 allow gmscore_app vendor_keylayout_file:dir getattr;
-allow gmscore_app surfaceflinger:binder call;
 dontaudit gmscore_app adbd_prop:file read;
 dontaudit gmscore_app system_adbd_prop:file read;
