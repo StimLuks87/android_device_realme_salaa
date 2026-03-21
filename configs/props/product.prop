@@ -53,6 +53,7 @@ ro.lmk.thrashing_limit=30
 ro.lmk.thrashing_limit_decay=2
 
 # RKPD
+remote_provisioning.enable_rkpd=true
 remote_provisioning.hostname=remoteprovisioning.googleapis.com
 
 # RIL

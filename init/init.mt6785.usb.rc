@@ -22,7 +22,7 @@ on post-fs
     mkdir /config/usb_gadget/g1/functions/rndis.gs4
     mkdir /config/usb_gadget/g1/functions/midi.gs5
     mkdir /config/usb_gadget/g1/functions/ncm.gs9
-    mkdir /config/usb_gadget/g1/functions/mass_storage.usb0
+    mkdir /config/usb_gadget/g1/functions/mass_storage.0
     mkdir /config/usb_gadget/g1/functions/hid.gs0
     mkdir /config/usb_gadget/g1/functions/via_modem.gs0
     mkdir /config/usb_gadget/g1/functions/via_ets.gs0
@@ -179,12 +179,12 @@ on boot
     chown root system /sys/class/typec/port0/power_role
     chown root system /sys/class/typec/port0/data_role
     chown root system /sys/class/typec/port0/port_type
-    chown root system /sys/class/udc/${sys.usb.controller}/device/mode
+    chown root system /sys/class/udc/${sys.usb.controller}/device/cmode
     chown root system /sys/class/udc/${sys.usb.controller}/device/saving
     chmod 664 /sys/class/typec/port0/power_role
     chmod 664 /sys/class/typec/port0/data_role
     chmod 664 /sys/class/typec/port0/port_type
-    chmod 664 /sys/class/udc/${sys.usb.controller}/device/mode
+    chmod 664 /sys/class/udc/${sys.usb.controller}/device/cmode
     chmod 664 /sys/class/udc/${sys.usb.controller}/device/saving
 
 on property:dev.bootcomplete=1

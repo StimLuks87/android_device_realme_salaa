@@ -1,6 +1,8 @@
 dontaudit vendor_init vendor_userdir_file:dir write;
 dontaudit vendor_init system_data_file:dir write;
 dontaudit vendor_init proc:file write;
+dontaudit vendor_init bluetooth_data_file:dir { getattr search };
+
 allow vendor_init sysfs_leds:dir search;
 allow vendor_init sysfs_leds:file rw_file_perms;
 allow vendor_init proc_sched:file rw_file_perms;

@@ -246,6 +246,8 @@ odm/lib64/libstfaceunlockppl.so
 odm/lib64/libtfavib.so
 odm/lib64/vendor.oplus.hardware.engcamera@1.0.so
 vendor/bin/hw/camerahalserver
+vendor/etc/asd/class.tflite
+vendor/etc/asd/detect.tflite
 vendor/etc/init/camerahalserver.rc
 vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so
 vendor/lib64/hw/vendor.mediatek.hardware.camera.atms@1.0-impl.so
@@ -293,6 +295,7 @@ vendor/lib64/lib3a.gma.so
 vendor/lib64/lib3a.lce.so
 vendor/lib64/lib3a.log.so
 vendor/lib64/lib3a.n3d3a.so
+vendor/lib64/libPerfectlyClearCrux.so
 vendor/lib64/libCamera_gc02m1bmipimono20730_AutoHDR_Capture.so
 vendor/lib64/libCamera_gc02m1bmipimono20730_AutoHDR_Preview.so
 vendor/lib64/libCamera_gc02m1bmipimono20730_AutoHDR_Video.so
@@ -1318,6 +1321,8 @@ odm/lib64/hw/fingerprint.goodix_G3.default.so
 odm/lib64/hw/fingerprint.goodix_G5.default.so
 odm/lib64/hw/fingerprint.goodix_G6.default.so
 odm/lib64/hw/fingerprint.goodix_G7.default.so
+odm/lib64/hw/fpsensor_fingerprint.default.so
+odm/lib64/hw/sidefp_fingerprint.default.so
 odm/lib64/anc.capacitive.hal.so
 odm/lib64/anc.hal.so
 odm/lib64/libegis_hal.so
@@ -1745,6 +1750,7 @@ vendor/bin/hw/vendor.mediatek.hardware.nvram@1.1-service
 vendor/bin/nvram_daemon
 vendor/etc/init/init.connfem.rc
 vendor/etc/init/nvram_daemon.rc
+vendor/etc/init/vendor.mediatek.hardware.nwk_opt@1.0-service.rc
 vendor/etc/init/vendor.mediatek.hardware.nvram@1.1-sevice.rc
 vendor/lib/libfile_op.so
 vendor/lib/libconnfem.so
@@ -1752,6 +1758,8 @@ vendor/lib/libcustom_nvram.so
 vendor/lib/libnvram.so
 vendor/lib/libnvram_sec.so
 vendor/lib64/hw/vendor.mediatek.hardware.nvram@1.1-impl.so
+vendor/lib64/libnwk_opt_halwrap_vendor.so
+vendor/lib64/nwk_opt_imp.so
 vendor/lib64/libconnfem.so
 vendor/lib64/libcustom_nvram.so
 vendor/lib64/libfile_op.so
@@ -1760,6 +1768,7 @@ vendor/lib64/libnvram_sec.so
 vendor/lib64/libstorage_otp.so
 vendor/lib64/vendor.mediatek.hardware.nvram@1.0.so
 vendor/lib64/vendor.mediatek.hardware.nvram@1.1.so
+vendor/lib64/vendor.mediatek.hardware.nwk_opt@1.0.so
 
 # Neural networks (System)
 system/etc/public.libraries-mtk.txt
@@ -2015,6 +2024,7 @@ odm/lib64/vendor.oplus.hardware.subsys@1.0.so
 # TEE
 system_ext/lib/libteeservice_client.trustonic.so
 system_ext/lib64/libteeservice_client.trustonic.so
+odm/lib64/libTeeClient.so
 odm/vendor/app/mcRegistry/030b0000000000000000000000000000.drbin
 odm/vendor/app/mcRegistry/030b0000000000000000000000000000.tlbin
 odm/vendor/app/mcRegistry/030c0000000000000000000000000000.drbin
@@ -2067,11 +2077,16 @@ vendor/app/mcRegistry/9073f03a9618383bb1856eb3f990babd.drbin
 vendor/app/mcRegistry/9073f03a9618383bb1856eb3f990babd.tlbin
 vendor/app/mcRegistry/98fb95bcb4bf42d26473eae48690d7ea.tabin
 vendor/app/mcRegistry/e97c270ea5c44c58bcd3384a2fa2539e.tabin
+vendor/bin/hw/vendor.trustonic.soter@1.0-service
 vendor/bin/hw/vendor.trustonic.tee@1.1-service
 vendor/bin/mcDriverDaemon
+vendor/etc/vintf/manifest/manifest_soter.xml
 vendor/etc/init/tee.rc
 vendor/etc/init/trustonic.rc
+vendor/etc/init/vendor.trustonic.soter@1.0-service.rc
 vendor/etc/init/vendor.trustonic.tee@1.1-service.rc
+vendor/lib/libSoterProvision.so
+vendor/lib/soter_attk_provision.so
 vendor/lib/libMcClient.so
 vendor/lib/libTEECommon.so
 vendor/lib/libgz_gp_client.so
@@ -2079,11 +2094,15 @@ vendor/lib/libgz_uree.so
 vendor/lib/libthha.so
 vendor/lib64/hw/libMcGatekeeper.so;SYMLINK=vendor/lib64/hw/gatekeeper.trustonic.so
 vendor/lib64/hw/libSoftGatekeeper.so;SYMLINK=vendor/lib64/hw/gatekeeper.default.so
+vendor/lib64/libMcTeeSoter.so
+vendor/lib64/libSoterProvision.so
+vendor/lib64/soter_attk_provision.so
 vendor/lib64/libMcClient.so
 vendor/lib64/libTEECommon.so
 vendor/lib64/libgz_gp_client.so
 vendor/lib64/libgz_uree.so
 vendor/lib64/libthha.so
+vendor/lib64/vendor.qti.hardware.soter@1.0.so
 vendor/lib64/vendor.trustonic.tee.tui@1.0.so
 vendor/lib64/vendor.trustonic.tee@1.0.so
 vendor/lib64/vendor.trustonic.tee@1.1.so

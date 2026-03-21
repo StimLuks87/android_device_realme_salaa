@@ -32,10 +32,18 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_ENABLE_UFFD_GC := true
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS=false
 
+# Speed profile services and wifi-service to reduce RAM and storage
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+
 # Dex
-PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+WITH_DEXPREOPT_DEBUG_INFO := false
+USE_DEX2OAT_DEBUG := false
+WITH_DEXPREOPT := true
+
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    NexusLauncherRelease
 
 # Audio
 TARGET_EXCLUDES_AUDIOFX := true
@@ -112,6 +120,7 @@ PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
 # Graphics
+$(call soong_config_set_bool,libgui,support_mtk_ged_kpi,true)
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.2-service \
     android.hardware.memtrack-service.mediatek
