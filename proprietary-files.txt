@@ -1256,17 +1256,6 @@ odm/bin/hw/vendor.oplus.hardware.charger@1.0-service
 odm/etc/init/vendor.oplus.hardware.charger@1.0-service.rc
 odm/etc/permissions/vendor-oplus-hardware-charger.xml
 odm/etc/vintf/manifest/manifest_oplus_charger.xml
-odm/firmware/fastchg/20171/oplus_vooc_fw_op10.bin
-odm/firmware/fastchg/20353/oplus_vooc_fw_op10.bin
-odm/firmware/fastchg/20615/charging_thermal_config_default.txt
-odm/firmware/fastchg/20662/charging_thermal_config_default.txt
-odm/firmware/fastchg/20827/oplus_vooc_fw_op10.bin
-odm/firmware/fastchg/20827/oplus_vooc_fw_rt5125.bin
-odm/firmware/fastchg/20831/oplus_vooc_fw_op10.bin
-odm/firmware/fastchg/20831/oplus_vooc_fw_rt5125.bin
-odm/firmware/fastchg/21609/charging_thermal_config_default.txt
-odm/firmware/fastchg/21651/charging_thermal_config_default.txt
-odm/firmware/fastchg/charging_thermal_config_default.txt
 odm/lib/vendor.oplus.hardware.charger@1.0.so
 odm/lib64/vendor.oplus.hardware.charger@1.0.so
 
@@ -1339,6 +1328,7 @@ vendor/lib/vendor.oplus.hardware.commondcs@1.0.so
 vendor/lib64/vendor.oplus.hardware.commondcs@1.0.so
 
 # Firmware
+odm/firmware/fastchg/charging_thermal_config_default.txt
 odm/firmware/tp/20682/FW_NT36672C_NF_BOE.bin
 odm/firmware/tp/20682/FW_NT36672C_NF_BOE_FAE.bin
 odm/firmware/tp/20682/FW_NT36672C_NF_BOE_TEST.bin
@@ -2117,7 +2107,7 @@ vendor/lib64/libifcutils_mtk.so
 vendor/lib64/vendor.mediatek.hardware.netdagent@1.0.so
 
 # Thermal
-odm/etc/temperature_profile/sys_high_temp_protect_realme_2068A.xml
+odm/etc/temperature_profile/sys_high_temp_protect_realme_2068A.xml:odm/etc/temperature_profile/sys_high_temp_protect_realme_20682.xml
 odm/etc/temperature_profile/sys_thermal_control_config.xml
 vendor/bin/thermal
 vendor/bin/thermal_manager
@@ -2130,10 +2120,9 @@ vendor/etc/init/init.thermal.rc
 vendor/etc/init/init.thermal_manager.rc
 vendor/etc/init/init.thermalloadalgod.rc
 vendor/etc/fstb.cfg
-vendor/lib/libthermalalgo.so
-
-# Thermal-Hardware
+vendor/etc/mpe.conf
 vendor/lib/hw/thermal_hal.so
+vendor/lib/libthermalalgo.so
 vendor/lib64/hw/thermal_hal.so
 
 # Touch - HIDL

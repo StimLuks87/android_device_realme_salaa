@@ -66,6 +66,8 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('__gnu_Unwind_Find_exidx'),
 
     # Camera & Sensors
+    'odm/etc/camera/CameraHWConfiguration.config': blob_fixup()
+        .regex_replace('Project = 2068A', 'Project = 20682'),
     'vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so': blob_fixup()
         .replace_needed('libutils.so', 'libutils-v32.so')
         .replace_needed('libhidlbase.so', 'libhidlbase-v32.so')
