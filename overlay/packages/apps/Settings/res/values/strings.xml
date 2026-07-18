@@ -5,5 +5,5 @@
 -->
 <resources>
     <!-- DerpFest maintainer -->
-    <string name="derpfest_maintainer">LUKS</string>
+    <string name="derpfest_maintainer" translatable="false">LUKS</string>
 </resources>
